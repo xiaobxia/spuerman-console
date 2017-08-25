@@ -6,8 +6,12 @@ import Vue from 'vue';
 import NProgress from 'vue-nprogress';
 import {sync} from 'vuex-router-sync';
 import {ElementUI, MessageBox} from 'element-ui';
+
 import * as filters from './filters';
-import './i18n';
+
+import ElementLocale from 'element-ui/lib/locale';
+import i18n from './i18n';
+
 import App from './App.vue';
 import router from './router';
 import store from './store';
@@ -17,6 +21,9 @@ import http from './util/httpUtil';
 Vue.use(NProgress);
 Vue.use(ElementUI);
 sync(store, router);
+
+ElementLocale.i18n((key, value) => i18n.t(key, value));
+
 // 进入路由前的钩子
 router.beforeEach((to, from, next) => {
   // document.body.scrollTop = 0;

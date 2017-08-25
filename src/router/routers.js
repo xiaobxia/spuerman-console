@@ -1,21 +1,4 @@
-// show: meta.label -> name
-// name: component name
-// meta.label: display label
-
-// lazy loading Components
-// https://github.com/vuejs/vue-router/blob/dev/examples/lazy-loading/app.js#L8
-
-// this is for webpack2
 const lazyLoading = (path, index = false) => () => System.import(`module/${path}${index ? '/index' : ''}.vue`)
-
-// this is for webpack1
-// const lazyLoading = (path, index = false) => resolve => {
-//  let fileName = `${basePath}${path}${index ? '/index' : ''}.vue`
-//  const nickName = fileName.replace(/\//g, '_')
-//
-//  require.ensure([], () => resolve(require(fileName)), nickName)
-// }
-
 
 // 路由定义
 // 从服务器加载菜单选项
@@ -173,4 +156,4 @@ export default [
     path: '/bpmn/workflow/leaveDetailForHR',
     component: lazyLoading('bpmn/workflow/leaveDetailForHR')
   }
-]
+];

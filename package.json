@@ -17,6 +17,7 @@
     "assign-deep": "^0.4.6",
     "axios": "^0.16.2",
     "vue": "^2.3.3",
+    "vue-i18n": "^7.1.1",
     "vue-nprogress": "^0.1.5",
     "vue-router": "^2.6.0",
     "vuex-router-sync": "^4.2.0"
