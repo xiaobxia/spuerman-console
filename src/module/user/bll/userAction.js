@@ -1,4 +1,4 @@
-import http from '../../../util/httpUtil';
+import http from 'util/httpUtil';
 import * as types from './userMutationTypes';
 
 const actions = {
