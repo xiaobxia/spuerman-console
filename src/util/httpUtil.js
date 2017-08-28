@@ -1,6 +1,6 @@
 import axios from 'axios';
 import qs from 'qs';
-const basePath = '/crm-web/';
+const basePath = '/your-business/';
 function makeUrl(url) {
   if (url.startsWith('/') || url.startsWith('http://') || url.startsWith('https://')) {
     return url;
@@ -19,13 +19,10 @@ const Http = {
   },
 
   post (url, param, options) {
-    // must be in form data format
-    //options = assignDeep({emulateJSON: true}, options);
     return axios.post(makeUrl(url), qs.stringify(param), options).then(data => data.data.result);
   },
 
   postRaw (url, param, options) {
-    //options = assignDeep({emulateJSON: true}, options);
     return axios.post(makeUrl(url), qs.stringify(param), options);
   },
 

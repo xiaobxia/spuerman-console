@@ -8,6 +8,7 @@ import NProgress from 'vue-nprogress';
 import {sync} from 'vuex-router-sync';
 import ElementUI, {MessageBox} from 'element-ui';
 import axios from 'axios';
+import VueClipboards from 'vue-clipboards';
 import App from './App.vue';
 import router from './router';
 import * as filters from './filters';
@@ -18,6 +19,7 @@ import * as types from './store/mutationTypes';
 import http from './util/httpUtil';
 
 Vue.use(NProgress);
+Vue.use(VueClipboards);
 Vue.use(ElementUI, {
   i18n: (key, value) => i18n.vm._t(key, value)
 });

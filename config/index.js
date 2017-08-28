@@ -23,13 +23,13 @@ module.exports = {
   },
   dev: {
     env: require('./dev.env'),
-    port: 8080,
+    port: 4000,
     autoOpenBrowser: true,
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
     proxyTable: {
-      "/crm-web": {
-        "target": "http://192.168.2.136:8080/"
+      "/your-business": {
+        "target": "http://localhost:8080/"
       }
     //your-business': {
     //  target: 'http://11.111.111.11/'
