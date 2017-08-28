@@ -1,6 +1,9 @@
 import mutations from './mutations';
 import actions from './actions';
 const state = {
+  config: {
+    sidebar: true
+  },
   mobile: false,
   sidebar: true,
   menu: [],

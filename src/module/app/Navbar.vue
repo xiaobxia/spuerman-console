@@ -22,6 +22,7 @@
             <el-dropdown-item command="changePwd"><i class=" el-icon-edit"/>{{$t('CHANGE_PWD')}}</el-dropdown-item>
             <el-dropdown-item command="about"><i class="el-icon-information"/>{{$t('ABOUT')}}</el-dropdown-item>
             <el-dropdown-item command="logout" divided><i class="el-icon-information"/>{{$t('LOGOUT')}}
+
             </el-dropdown-item>
           </el-dropdown-menu>
         </el-dropdown>
@@ -32,10 +33,8 @@
 </template>
 
 <script type="text/babel">
-  import { mapActions } from 'vuex';
-
+  import {mapActions} from 'vuex';
   import changePwd from './changePwd.vue';
-
   export default {
     name: 'NAVBAR',
     props: {
@@ -43,7 +42,7 @@
     },
 
     data () {
-      return this.$store.state.pkg;
+      return {};
     },
 
     components: {changePwd},

@@ -1,4 +1,5 @@
 import 'animate.css';
+import 'font-awesome/css/font-awesome.css';
 import 'element-ui/lib/theme-default/index.css';
 import './scss/index.scss';
 
