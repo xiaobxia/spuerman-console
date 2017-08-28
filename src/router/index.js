@@ -3,7 +3,7 @@ import Router from 'vue-router';
 
 import routers from './routers';
 import routerUtil from './routerUtil';
-console.log('4')
+
 Vue.use(Router);
 
 let dashboardComponent = routerUtil.lazyLoading('common/dashboard');

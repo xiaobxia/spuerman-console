@@ -16,9 +16,7 @@ import store from './store';
 import * as types from './store/mutationTypes';
 import http from './util/httpUtil';
 
-console.log('1')
 Vue.use(NProgress);
-console.log('2')
 Vue.use(ElementUI, {
   i18n: (key, value) => i18n.vm._t(key, value)
 });
@@ -67,7 +65,7 @@ Object.keys(filters).forEach(key => {
 
 axios.interceptors.response.use(function (response) {
   // Do something with response data
-  var data = response.body;
+  let data = response.data;
 
   if (response.status === 0) { //ignore
     console.warn('[HTTP status=0]');
@@ -82,7 +80,7 @@ axios.interceptors.response.use(function (response) {
     //   return response;
     // }
 
-    const {errorCode, errorMessage} = response.body || {};
+    const {errorCode, errorMessage} = response.data || {};
     let errorMsg = 'Server Internal Error. Please contact Administrator!';
     if (errorMessage) {
       errorMsg = `${errorMessage}`;

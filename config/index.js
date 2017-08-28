@@ -28,6 +28,9 @@ module.exports = {
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
     proxyTable: {
+      "/crm-web": {
+        "target": "http://192.168.2.136:8080/"
+      }
     //your-business': {
     //  target: 'http://11.111.111.11/'
     //},
