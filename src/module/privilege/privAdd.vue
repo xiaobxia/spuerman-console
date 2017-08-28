@@ -11,7 +11,7 @@
               <el-form-item label="Parent Priv" prop="parentPrivId">
                 <el-select v-model="form.parentPrivId" placeholder="Please select parent priv" style="width:100%">
                   <el-option label="Root Directory" :value="0"/>
-                  <el-option v-for="item in getRootPrivs" :label="item.privName" :value="item.privId">
+                  <el-option v-for="item in getRootPrivs" :label="item.privName" :value="item.privId" :key="item.privId">
                     <span style="float: left">{{ item.privName }}</span>
                     <span style="float: right; color: #8492a6; font-size: 13px">{{ item.privCode }}</span>
                   </el-option>
@@ -78,11 +78,11 @@
 
 <script type="text/babel">
 
-  import { mapActions, mapGetters } from 'vuex'
+  import { mapActions, mapGetters } from 'vuex';
 
-  import moduleStore from './bll/privStore'
-  import store from '../../store'
-  (!store.state.sysPriv) && store.registerModule('sysPriv', moduleStore)
+  import moduleStore from './bll/privStore';
+  import store from '../../store';
+  (!store.state.sysPriv) && store.registerModule('sysPriv', moduleStore);
 
   export default{
     data() {
@@ -121,7 +121,7 @@
             {required: true, message: 'This field is required.', trigger: 'change'}
           ]
         }
-      }
+      };
     },
 
     mounted() {
@@ -175,7 +175,7 @@
                 });
               }
 
-            })
+            });
           } else {
             this.$message({
               showClose: true,
@@ -201,7 +201,7 @@
         if (this.$route.query) {
           const privId = this.$route.query.privId;
           if (privId) {
-            this.pageModel = 'EDIT'
+            this.pageModel = 'EDIT';
             this.queryPriv({privId}).then(priv => {
               console.log(priv);
               this.form = priv; //TODO 不是很优雅
@@ -212,5 +212,5 @@
 
       }
     }
-  }
+  };
 </script>

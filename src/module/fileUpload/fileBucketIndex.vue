@@ -1,4 +1,3 @@
-<!-- Created by shi.pengyan on 2017-04-10. -->
 <template>
   <div>
     <div class="btn-group-wrapper bottom">
@@ -26,20 +25,20 @@
 </template>
 
 <script type="text/babel">
-  import { mapActions } from 'vuex'
+  import { mapActions } from 'vuex';
 
-  import moduleStore from './bll/fileUploadStore'
-  import store from '../../store'
-  (!store.state.sysFileUpload) && store.registerModule('sysFileUpload', moduleStore)
+  import moduleStore from './bll/fileUploadStore';
+  import store from '../../store';
+  (!store.state.sysFileUpload) && store.registerModule('sysFileUpload', moduleStore);
 
-  import FileBucketForm from './fileBucketForm.vue'
+  import FileBucketForm from './fileBucketForm.vue';
 
   export default{
     data() {
       return {
         formMode: null,
         currentRecord: null
-      }
+      };
     },
     computed: {
       getSysBuckets() {
@@ -88,7 +87,7 @@
           return;
         }
 
-        this._deleteParam(this.currentRecord.bucketId)
+        this._deleteParam(this.currentRecord.bucketId);
       },
 
       refreshHandler() {
@@ -123,6 +122,6 @@
       }
 
     }
-  }
+  };
 </script>
 

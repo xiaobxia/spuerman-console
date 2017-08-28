@@ -55,11 +55,11 @@
 </style>
 
 <script type="text/babel">
-  import { mapActions } from 'vuex'
+  import { mapActions } from 'vuex';
 
-  import moduleStore from './bll/privStore'
-  import store from '../../store'
-  (!store.state.sysPriv) && store.registerModule('sysPriv', moduleStore)
+  import moduleStore from './bll/privStore';
+  import store from '../../store';
+  (!store.state.sysPriv) && store.registerModule('sysPriv', moduleStore);
 
   import privUtil from './bll/privUtil';
 
@@ -73,7 +73,7 @@
         currentPage: 1,
         pageSize: 10,
         currentSelectedRecord: null
-      }
+      };
     },
     computed: {
       privList() {
@@ -105,7 +105,7 @@
           this.$message.warning('Please select one record.');
           return;
         }
-        this.$router.push({path: '/priv/add', query: {privId: this.currentSelectedRecord.privId}})
+        this.$router.push({path: '/priv/add', query: {privId: this.currentSelectedRecord.privId}});
       },
 
       delHandler() {
@@ -122,7 +122,7 @@
             this.$message.success('Succeed in deleting priv record.');
             this.currentSelectedRecord = null;
           });
-        })
+        });
       },
 
       changeStateHandler () {
@@ -144,7 +144,7 @@
       },
 
       handleSizeChange (val) {
-        console.log(`每页 ${val} 条`)
+        console.log(`每页 ${val} 条`);
         this.pageSize = val;
         this.queryPrivs({pageIndex: 1, pageSize: val});
       },
@@ -168,5 +168,5 @@
       //  this.currentSelectedRecord = row;
       //}
     }
-  }
+  };
 </script>

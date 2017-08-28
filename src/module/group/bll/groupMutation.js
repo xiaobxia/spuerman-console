@@ -16,7 +16,7 @@ const mutations = {
 
   },
   [types.GROUPS_QUERY_COUNT_SUC](state, {totalCount}) {
-    state.totalCount = totalCount
+    state.totalCount = totalCount;
   },
 
   [types.GROUP_ADD_SUC] (state, {group}) {
@@ -55,6 +55,6 @@ const mutations = {
       }
     }
   }
-}
+};
 
 export default mutations;

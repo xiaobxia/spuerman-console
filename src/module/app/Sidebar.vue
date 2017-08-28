@@ -12,7 +12,7 @@
       <template v-for="(item,index) in menu">
         <el-submenu :index="index+''" v-if="item.children&&item.children.length>0">
           <template slot="title"><i :class="['el-icon-menu']"></i>{{item.name}}</template>
-          <el-menu-item v-for="child in item.children" :index="child.path">{{child.name}}</el-menu-item>
+          <el-menu-item v-for="child in item.children" :index="child.path" :key="child.path">{{child.name}}</el-menu-item>
         </el-submenu>
         <el-menu-item v-if="!item.children" :index="item.path"><i :class="['el-icon-menu']"></i>{{item.name}}
         </el-menu-item>
@@ -22,7 +22,7 @@
 </template>
 
 <script type="text/babel">
-  import {mapActions} from 'vuex'
+  import {mapActions} from 'vuex';
 
   export default {
     props: {
@@ -34,7 +34,7 @@
         isReady: false,
         collapsed: false,
         routePath: null
-      }
+      };
     },
 
     mounted () {
@@ -66,5 +66,5 @@
       }
     }
 
-  }
+  };
 </script>

@@ -39,11 +39,11 @@
 </template>
 
 <script type="text/babel">
-  import { mapActions, mapGetters } from 'vuex'
-  import groupStore from './bll/groupStore'
-  import store from '../../store'
-  (!store.state.sysGroup) && store.registerModule('sysGroup', groupStore)
-  import GroupForm from './groupForm.vue'
+  import { mapActions, mapGetters } from 'vuex';
+  import groupStore from './bll/groupStore';
+  import store from '../../store';
+  (!store.state.sysGroup) && store.registerModule('sysGroup', groupStore);
+  import GroupForm from './groupForm.vue';
 
   export default{
     data() {
@@ -51,7 +51,7 @@
         pageSize: 10,
         formMode: null,
         currentRecord: null
-      }
+      };
     },
 
     computed: {
@@ -97,7 +97,7 @@
           return;
         }
 
-        this.deleteGroup(this.currentRecord.groupId)
+        this.deleteGroup(this.currentRecord.groupId);
       },
       tableRowChangeClickHandler (currentRow, oldCurrentRow) {
         console.log(currentRow);
@@ -118,7 +118,7 @@
         });
       },
       handleSizeChange (val) {
-        console.log(`每页 ${val} 条`)
+        console.log(`每页 ${val} 条`);
         this.pageSize = val;
         this.querySysGroups({pageIndex: 1, pageSize: val});
       },
@@ -128,5 +128,5 @@
         this.querySysGroups({pageIndex: val, pageSize: this.pageSize});
       }
     }
-  }
+  };
 </script>

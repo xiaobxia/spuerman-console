@@ -1,6 +1,3 @@
-/**
- * Created by shi.pengyan on 2017-01-05.
- */
 import actions from './fileUploadAction';
 import mutations from './fileUploadMutation';
 

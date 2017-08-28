@@ -32,7 +32,7 @@
 </template>
 
 <script type="text/babel">
-  import { mapActions } from 'vuex'
+  import { mapActions } from 'vuex';
 
   import changePwd from './changePwd.vue';
 
@@ -43,7 +43,7 @@
     },
 
     data () {
-      return this.$store.state.pkg
+      return this.$store.state.pkg;
     },
 
     components: {changePwd},
@@ -52,12 +52,12 @@
       refreshHandler() {
         //hack vue-router
         if (this.$route.matched && this.$route.matched.length) {
-          let firstMatch = this.$route.matched[0]
+          let firstMatch = this.$route.matched[0];
           if (firstMatch.instances && firstMatch.instances.default) {
             let currentModule = firstMatch.instances.default;
             if (currentModule.initPage) {
               try {
-                currentModule.initPage()
+                currentModule.initPage();
               } catch (e) {
                 console.log('invoke initPage error, please check.', e);
               }
@@ -98,5 +98,5 @@
         });
       }
     }
-  }
+  };
 </script>

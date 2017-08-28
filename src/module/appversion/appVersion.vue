@@ -35,11 +35,11 @@
 </template>
 
 <script type="text/babel">
-  import { mapActions, mapGetters } from 'vuex'
+  import { mapActions, mapGetters } from 'vuex';
 
-  import version from './bll/versionStore'
-  import store from '../../store'
-  (!store.state.sysVersion) && store.registerModule('sysVersion', version)
+  import version from './bll/versionStore';
+  import store from '../../store';
+  (!store.state.sysVersion) && store.registerModule('sysVersion', version);
 
   import AppVersionForm from './appVersionForm.vue';
 
@@ -49,7 +49,7 @@
       return {
         formMode: null,
         currentRecord: null
-      }
+      };
     },
     computed: {
       ...mapGetters([
@@ -62,8 +62,8 @@
     },
     components: {AppVersionForm},
     mounted () {
-      console.log('version page mounted')
-      this.initPage()
+      console.log('version page mounted');
+      this.initPage();
     },
     methods: {
       ...mapActions(['queryVersions', 'queryVersionsCount', 'deleteVersion']),
@@ -97,7 +97,7 @@
           return;
         }
 
-        this._deleteRecord(this.currentRecord.versionId)
+        this._deleteRecord(this.currentRecord.versionId);
       },
 
       tableRowChangeClickHandler (currentRow, oldCurrentRow) {
@@ -107,13 +107,13 @@
       },
 
       handleSizeChange(val) {
-        console.log(`每页 ${val} 条`)
-        this.queryVersions(1, val)
+        console.log(`每页 ${val} 条`);
+        this.queryVersions(1, val);
       },
       handleCurrentChange(val) {
         this.currentPage = val;
-        console.log(`当前页: ${val}`)
-        this.queryVersions(val)
+        console.log(`当前页: ${val}`);
+        this.queryVersions(val);
       },
       _deleteRecord(versionId) {
         this.$confirm('Are you sure to delete this record?', 'Confirm', {
@@ -129,5 +129,5 @@
         });
       }
     }
-  }
+  };
 </script>

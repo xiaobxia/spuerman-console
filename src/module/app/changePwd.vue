@@ -1,4 +1,3 @@
-<!-- Created by shi.pengyan on 2017-01-10. -->
 <template>
   <el-dialog ref="dialog" :title="$tc('CHANGE_PWD')" v-model="dialogVisible">
 
@@ -22,7 +21,7 @@
 </template>
 
 <script type="text/babel">
-  import { mapActions } from 'vuex'
+  import { mapActions } from 'vuex';
 
   export default{
     data() {
@@ -69,7 +68,7 @@
           ]
         },
         dialogVisible: false
-      }
+      };
     },
     methods: {
       ...mapActions(['changePwd']),
@@ -109,5 +108,5 @@
         this.dialogVisible = false;
       }
     }
-  }
+  };
 </script>

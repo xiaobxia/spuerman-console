@@ -1,4 +1,3 @@
-<!-- Created by shi.pengyan on 2016-12-13. -->
 <template>
   <div>
     <el-card class="box-card" :body-style="{padding:'5px'}">
@@ -11,7 +10,7 @@
             <el-form-item label="APP" prop="appId">
               <el-select v-model="form.appId" placeholder="Please select App" class="ui-full-width"
                          :disabled="disableForm" @change="appIdChangeHandler">
-                <el-option v-for="item in getSysApps" :label="item.appName" :value="item.appId"/>
+                <el-option v-for="item in getSysApps" :label="item.appName" :value="item.appId" :key="item.appId"/>
               </el-select>
             </el-form-item>
           </el-col>
@@ -27,7 +26,7 @@
             <el-form-item label="Force Update" prop="forceUpdate">
               <el-select v-model="form.forceUpdate" placeholder="Wheather force update or not."
                          class="ui-full-width" :disabled="disableForm">
-                <el-option v-for="item in forceUpdateList" :label="item.label" :value="item.value"/>
+                <el-option v-for="item in forceUpdateList" :label="item.label" :value="item.value" :key="item.value"/>
               </el-select>
             </el-form-item>
           </el-col>
@@ -62,9 +61,9 @@
   import assignDeep from 'assign-deep';
   import { mapActions } from 'vuex';
 
-  import moduleStore from './bll/versionStore'
-  import store from '../../store'
-  (!store.state.sysVersion) && store.registerModule('sysVersion', moduleStore)
+  import moduleStore from './bll/versionStore';
+  import store from '../../store';
+  (!store.state.sysVersion) && store.registerModule('sysVersion', moduleStore);
 
   export default{
     data() {
@@ -102,7 +101,7 @@
             {required: true, message: 'This field is required.'}
           ]
         }
-      }
+      };
     },
 
     props: {
@@ -177,7 +176,7 @@
                   confirmButtonText: 'OK'
                 });
               }
-            })
+            });
           } else {
             this.$message({
               showClose: true,
@@ -218,5 +217,5 @@
         this.$refs.form.resetFields();
       }
     }
-  }
+  };
 </script>

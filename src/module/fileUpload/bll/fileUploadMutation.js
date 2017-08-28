@@ -1,6 +1,3 @@
-/**
- * Created by shi.pengyan on 2017-01-05.
- */
 import * as types from './fileUploadMutationTypes';
 import arrayUtil from '../../../util/arrayUtil';
 import assignDeep from 'assign-deep';

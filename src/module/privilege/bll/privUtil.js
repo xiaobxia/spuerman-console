@@ -13,7 +13,7 @@ const privUtil = {
     let suffix = '';
     switch (data.type) {
       case 0:
-        prefix = '[Directory]'
+        prefix = '[Directory]';
         suffix = `[${data.code}]`;
         break;
       case 1:
@@ -46,6 +46,6 @@ const privUtil = {
     }
     return type;
   }
-}
+};
 
 export default privUtil;

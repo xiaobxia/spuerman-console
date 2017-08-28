@@ -1,4 +1,4 @@
-const lazyLoading = (path, index = false) => () => System.import(`module/${path}${index ? '/index' : ''}.vue`)
+const lazyLoading = (path, index = false) => () => System.import(`module/${path}${index ? '/index' : ''}.vue`);
 
 // 路由定义
 // 从服务器加载菜单选项
@@ -45,11 +45,6 @@ export default [
     component: lazyLoading('param/param')
   },
   {
-    name: 'Cache',
-    path: '/cache/index',
-    component: lazyLoading('cache/cache')
-  },
-  {
     name: 'JobService',
     path: '/jobservice/index',
     component: lazyLoading('jobservice/jobservice')
@@ -75,23 +70,6 @@ export default [
     component: lazyLoading('fileUpload/index')
   },
   {
-    name: 'Banner',
-    path: '/banner/index',
-    component: lazyLoading('banner/banner')
-  },
-
-  //TODO 项目化时请删除此模块
-  {
-    name: 'Bulletin',
-    path: '/bulletin/index',
-    component: lazyLoading('bulletin/bulletin')
-  },
-  {
-    name: 'BulletinForm',
-    path: '/bulletin/add',
-    component: lazyLoading('bulletin/bulletinForm')
-  },
-  {
     name: 'Group',
     path: '/group/index',
     component: lazyLoading('group/group')
@@ -110,50 +88,5 @@ export default [
     name: 'Picture',
     path: '/pictureUpload/index',
     component: lazyLoading('pictureUpload/index')
-  },
-  {
-    name: 'BpmnRule',
-    path: '/bpmn/rule',
-    component: lazyLoading('bpmn/rule')
-  },
-  {
-    name: 'BpmnInstance',
-    path: '/bpmn/instance',
-    component: lazyLoading('bpmn/instance')
-  },
-  {
-    name: 'BpmnMyTask',
-    path: '/bpmn/myTask',
-    component: lazyLoading('bpmn/myTask')
-  },
-  {
-    name: 'BpmnMyTaskHis',
-    path: '/bpmn/myTaskHis',
-    component: lazyLoading('bpmn/myTaskHis')
-  },
-  {
-    name: 'BpmnApply',
-    path: '/bpmn/apply',
-    component: lazyLoading('bpmn/apply')
-  },
-  {
-    name: 'BpmnWorkflowLeave',
-    path: '/bpmn/workflow/leave',
-    component: lazyLoading('bpmn/workflow/leave')
-  },
-  {
-    name: 'BpmnWorkFlowLeaveDetail',
-    path: '/bpmn/workflow/leaveDetail',
-    component: lazyLoading('bpmn/workflow/leaveDetail')
-  },
-  {
-    name: 'BpmnWorkFlowLeaveDetailForDepartmentLeader',
-    path: '/bpmn/workflow/leaveDetailForDepartmentLeader',
-    component: lazyLoading('bpmn/workflow/leaveDetailForDepartmentLeader')
-  },
-  {
-    name: 'BpmnWorkFlowLeaveDetailForHR',
-    path: '/bpmn/workflow/leaveDetailForHR',
-    component: lazyLoading('bpmn/workflow/leaveDetailForHR')
   }
 ];

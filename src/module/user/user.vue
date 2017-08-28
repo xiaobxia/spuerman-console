@@ -54,14 +54,14 @@
 </style>
 
 <script type="text/babel">
-  import { mapActions, mapGetters } from 'vuex'
+  import { mapActions, mapGetters } from 'vuex';
 
-  import moduleStore from './bll/userStore'
-  import store from '../../store'
-  (!store.state.sysUser) && store.registerModule('sysUser', moduleStore)
+  import moduleStore from './bll/userStore';
+  import store from '../../store';
+  (!store.state.sysUser) && store.registerModule('sysUser', moduleStore);
 
-  import UserRoleDialog from './userRoleDialog.vue'
-  import UserPrivDialog from './userPrivDialog.vue'
+  import UserRoleDialog from './userRoleDialog.vue';
+  import UserPrivDialog from './userPrivDialog.vue';
 
   export default{
     data() {
@@ -69,7 +69,7 @@
         currentPage: 1,
         pageSize: 10,
         currentUser: null
-      }
+      };
     },
     computed: {
       ...mapGetters(['getSysUsers', 'getSysUserTotalCount'])
@@ -99,7 +99,7 @@
           this.$message.warning('Please select one record.');
           return;
         }
-        this.$router.push({path: '/user/add', query: {userId: this.currentUser.userId}})
+        this.$router.push({path: '/user/add', query: {userId: this.currentUser.userId}});
       },
 
       delHandler() {
@@ -134,7 +134,7 @@
         let tip = 'Are you sure to lock this user?';
         let sucTip = 'Succeed in locking this user.';
         if (isLocked) {
-          tip = 'Are you sure to unlock this user?'
+          tip = 'Are you sure to unlock this user?';
           sucTip = 'Succeed in unlocking this user.';
         }
 
@@ -189,7 +189,7 @@
         this.currentUser = row;
       },
       handleSizeChange (val) {
-        console.log(`每页 ${val} 条`)
+        console.log(`每页 ${val} 条`);
         this.pageSize = val;
         this.queryUsers({pageIndex: 1, pageSize: val});
       },
@@ -209,5 +209,5 @@
         }
       }
     }
-  }
+  };
 </script>

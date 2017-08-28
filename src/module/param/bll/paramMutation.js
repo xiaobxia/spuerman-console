@@ -18,7 +18,7 @@ const mutations = {
 
   },
   [types.PARAM_QUERY_PARAMS_COUNT_SUC](state, {totalCount}) {
-    state.totalCount = totalCount
+    state.totalCount = totalCount;
   },
 
   [types.PARAM_ADD_SUC] (state, {param}) {
@@ -64,11 +64,11 @@ const mutations = {
         break;
       }
     }
-  },
-
-  [types.PARAM_DELETE_FAIL](state) {
-
   }
+
+  // [types.PARAM_DELETE_FAIL](state) {
+  //
+  // }
 
 };
 

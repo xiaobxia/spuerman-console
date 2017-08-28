@@ -1,14 +1,14 @@
-import Vue from 'vue'
-import Router from 'vue-router'
+import Vue from 'vue';
+import Router from 'vue-router';
 
-import routers from './routers'
-import routerUtil from './routerUtil'
-
-Vue.use(Router)
+import routers from './routers';
+import routerUtil from './routerUtil';
+console.log('4')
+Vue.use(Router);
 
 let dashboardComponent = routerUtil.lazyLoading('common/dashboard');
 //let dynamicComponent = routerUtil.lazyLoading('common/dynamicComponent')
-import dynamicComponent from '../module/common/dynamicComponent.vue'
+import dynamicComponent from '../module/common/dynamicComponent.vue';
 
 export default new Router({
   mode: 'hash', // hash, history
@@ -36,5 +36,5 @@ export default new Router({
     //  redirect: '/'
     //}
   ]
-})
+});
 

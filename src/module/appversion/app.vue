@@ -26,20 +26,20 @@
 </template>
 
 <script type="text/babel">
-  import { mapActions, mapGetters } from 'vuex'
+  import { mapActions, mapGetters } from 'vuex';
 
-  import moduleStore from './bll/appStore'
-  import store from '../../store'
-  (!store.state.sysApp) && store.registerModule('sysApp', moduleStore)
+  import moduleStore from './bll/appStore';
+  import store from '../../store';
+  (!store.state.sysApp) && store.registerModule('sysApp', moduleStore);
 
-  import AppForm from './appForm.vue'
+  import AppForm from './appForm.vue';
 
   export default{
     data() {
       return {
         formMode: null,
         currentRecord: null
-      }
+      };
     },
     computed: {
       ...mapGetters(['getSysApps'])
@@ -85,7 +85,7 @@
           return;
         }
 
-        this._deleteApp(this.currentRecord.appId)
+        this._deleteApp(this.currentRecord.appId);
       },
 
       tableRowChangeClickHandler (currentRow, oldCurrentRow) {
@@ -115,7 +115,7 @@
             }
             break;
         }
-        return 'Unkown key'
+        return 'Unkown key';
       },
       formatterStateHandler (row, column) {
         switch (column.property) {
@@ -137,5 +137,5 @@
       }
 
     }
-  }
+  };
 </script>

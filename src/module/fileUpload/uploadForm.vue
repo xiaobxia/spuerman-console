@@ -34,12 +34,12 @@
 
 
 <script type="text/babel">
-  import assignDeep from 'assign-deep'
-  import { mapActions } from 'vuex'
+  import assignDeep from 'assign-deep';
+  import { mapActions } from 'vuex';
 
-  import moduleStore from './bll/fileUploadStore'
-  import store from '../../store'
-  (!store.state.sysFileUpload) && store.registerModule('sysFileUpload', moduleStore)
+  import moduleStore from './bll/fileUploadStore';
+  import store from '../../store';
+  (!store.state.sysFileUpload) && store.registerModule('sysFileUpload', moduleStore);
 
   export default{
     data() {
@@ -51,7 +51,7 @@
           fileUrl: '',
           description: ''
         }
-      }
+      };
     },
 
     props: {
@@ -99,7 +99,7 @@
               self.$alert('Succeed in update info.', 'Information', {
                 confirmButtonText: 'OK'
               });
-            })
+            });
           } else {
             this.$message({
               showClose: true,
@@ -134,6 +134,6 @@
       }
 
     }
-  }
+  };
 </script>
 

@@ -9,7 +9,7 @@ const actions = {
     return http.get(`sys/role/${roleId}`).then(role => {
       //commit(types.ROLE_QUERY_ROLE_SUC, {role});
       return role;
-    })
+    });
   },
 
   querySysRoles ({ commit }, { pageIndex = 1, pageSize = 10 } = {}) {
@@ -18,7 +18,7 @@ const actions = {
     return http.get(`sys/role/roles?pageIndex=${pageIndex}&pageSize=${pageSize}`)
       .then(roles => {
         commit(types.ROLE_QUERY_ROLES_SUC, {roles});
-      })
+      });
   },
 
   querySysRolesCount({ commit }) {
@@ -30,13 +30,13 @@ const actions = {
 
   saveSysRole({ commit }, role) {
     return http.post('sys/role/add', role).then(data => {
-      commit(types.ROLE_ADD_SUC)
+      commit(types.ROLE_ADD_SUC);
     });
   },
 
   updateSysRole({ commit }, role) {
     return http.post('sys/role/update', role).then(data => {
-      commit(types.ROLE_UPDATE_SUC)
+      commit(types.ROLE_UPDATE_SUC);
     });
   },
 
@@ -54,7 +54,7 @@ const actions = {
     //TODO
     return http.get(`sys/user/userrole/${roleId}`).then(userroles => {
       commit(types.USERROLE_QUERY_SUC, {userroles});
-    })
+    });
   },
 
   queryUserRoles({ commit }, {roleId, pageIndex = 1, pageSize = 10} = {}) {
@@ -62,7 +62,7 @@ const actions = {
     //TODO 分页
     return http.get(`sys/user/userrole/${roleId}`).then(userroles => {
       commit(types.USERROLE_QUERY_SUC, {userroles});
-    })
+    });
   },
   saveUserRole({ commit }, {userRole, user} = {}) {
     commit(types.USERROLE_ADD_BEGIN);
@@ -88,11 +88,11 @@ const actions = {
     //TODO
     return http.get(`sys/priv/rolepriv?roleId=${roleId}`).then(roleprivs => {
       commit(types.ROLEPRIV_QUERY_SUC, {roleprivs});
-    })
+    });
   },
 
   saveRolePriv({ commit }, {rolePriv, priv}) {
-    commit(types.ROLEPRIV_ADD_BEGIN)
+    commit(types.ROLEPRIV_ADD_BEGIN);
 
     return http.post('sys/rolepriv/add', rolePriv).then(() => {
       commit(types.ROLEPRIV_ADD_SUC, {priv});
@@ -104,7 +104,7 @@ const actions = {
 
     return http.delete(`sys/rolepriv/${roleId}/${privId}`).then(() => {
       commit(types.ROLEPRIV_DELETE_SUC, {privId});
-    })
+    });
   }
 
 };

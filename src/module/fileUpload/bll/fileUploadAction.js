@@ -1,6 +1,3 @@
-/**
- * Created by shi.pengyan on 2017-01-05.
- */
 import http from '../../../util/httpUtil';
 import * as types from './fileUploadMutationTypes';
 
@@ -51,7 +48,7 @@ const actions = {
     commit(types.SYS_FILE_UPLOAD_QUERY_FILES_COUNT_BEGIN);
 
     return http.get('sys/upload/filesCount').then(totalCount => {
-      commit(types.SYS_FILE_UPLOAD_QUERY_FILES_COUNT_SUC, {totalCount})
+      commit(types.SYS_FILE_UPLOAD_QUERY_FILES_COUNT_SUC, {totalCount});
     });
   },
 
@@ -59,7 +56,7 @@ const actions = {
     commit(types.SYS_FILE_BUCKET_QUERY_LIST_BEGIN);
     return http.get('sys/fileBucket/list').then(buckets => {
       commit(types.SYS_FILE_BUCKET_QUERY_LIST_SUC, {buckets});
-    })
+    });
   },
 
   saveBucket({ commit }, fileBucket) {

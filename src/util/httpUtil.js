@@ -1,7 +1,6 @@
 import axios from 'axios';
 import assignDeep from 'assign-deep';
-
-const basePath = '/superman-web/';
+const basePath = '/your-business/';
 
 function makeUrl(url) {
   if (url.startsWith('/') || url.startsWith('http://') || url.startsWith('https://')) {

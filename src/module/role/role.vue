@@ -104,11 +104,11 @@
 </template>
 
 <script type="text/babel">
-  import { mapActions, mapGetters } from 'vuex'
+  import { mapActions, mapGetters } from 'vuex';
 
-  import moduleStore from './bll/roleStore'
-  import store from '../../store'
-  (!store.state.sysRole) && store.registerModule('sysRole', moduleStore)
+  import moduleStore from './bll/roleStore';
+  import store from '../../store';
+  (!store.state.sysRole) && store.registerModule('sysRole', moduleStore);
 
   import UserSelectDialog from '../user/userSelectDialog.vue';
   import PrivSelectDialog from '../privilege/privSelectDialog.vue';
@@ -121,7 +121,7 @@
         currentSelectedRoleRecord: null,
         currentSelectedUserRecord: null,
         currentSelectedPrivRecord: null
-      }
+      };
     },
     computed: {
       ...mapGetters([
@@ -258,11 +258,11 @@
       },
 
       changeStateHandler() {
-        this.$message.warning('this function is building.')
+        this.$message.warning('this function is building.');
       },
 
       handleSizeChange (val) {
-        console.log(`每页 ${val} 条`)
+        console.log(`每页 ${val} 条`);
         this.pageSize = val;
         this.querySysRoles({pageIndex: 1, pageSize: val});
       },
@@ -276,8 +276,8 @@
         if (row) {
           this.currentSelectedRoleRecord = row;
 
-          this.queryUserRoles({roleId: row.roleId})
-          this.queryRolePrivs({roleId: row.roleId})
+          this.queryUserRoles({roleId: row.roleId});
+          this.queryRolePrivs({roleId: row.roleId});
         }
       },
 
@@ -304,5 +304,5 @@
         }
       }
     }
-  }
+  };
 </script>

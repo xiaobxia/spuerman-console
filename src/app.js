@@ -5,24 +5,24 @@ import './scss/index.scss';
 import Vue from 'vue';
 import NProgress from 'vue-nprogress';
 import {sync} from 'vuex-router-sync';
-import {ElementUI, MessageBox} from 'element-ui';
-
-import * as filters from './filters';
-
-import ElementLocale from 'element-ui/lib/locale';
-import i18n from './i18n';
-
+import ElementUI, {MessageBox} from 'element-ui';
+import axios from 'axios';
 import App from './App.vue';
 import router from './router';
+import * as filters from './filters';
+import i18n from './i18n';
+//全局store
 import store from './store';
 import * as types from './store/mutationTypes';
 import http from './util/httpUtil';
 
+console.log('1')
 Vue.use(NProgress);
-Vue.use(ElementUI);
+console.log('2')
+Vue.use(ElementUI, {
+  i18n: (key, value) => i18n.vm._t(key, value)
+});
 sync(store, router);
-
-ElementLocale.i18n((key, value) => i18n.t(key, value));
 
 // 进入路由前的钩子
 router.beforeEach((to, from, next) => {
@@ -44,7 +44,7 @@ router.beforeEach((to, from, next) => {
       // 菜单权限校验
       http.post('sys/user/checkUserMenuPriv', {path: to.path}).then(hasPriv => {
         if (hasPriv) {
-          next()
+          next();
         } else {
           next(false);// 中断当前的导航
           // closeGlobalLoading();
@@ -62,76 +62,74 @@ router.afterEach(route => {
 
 // customer vue filters
 Object.keys(filters).forEach(key => {
-  Vue.filter(key, filters[key])
+  Vue.filter(key, filters[key]);
 });
 
-// Global Http Handler Begin-------
-Vue.http.interceptors.push((request, next) => {
-  // you can modify request in here!
+axios.interceptors.response.use(function (response) {
+  // Do something with response data
+  var data = response.body;
 
-  // continue to next interceptor
-  next((response) => {
-    var data = response.body;
-
-    if (response.status === 0) { //ignore
-      console.warn('[HTTP status=0]');
-      return response;
-    }
-    //check resp status
-    if (response.status !== 200) {
-
-      console.info('[HTTP ERROR]', response);
-
-      if (request.headers.has('ignoreGlobalDialog')) {
-        return response;
-      }
-
-      const {errorCode, errorMessage} = response.body || {};
-      let errorMsg = 'Server Internal Error. Please contact Administrator!';
-      if (errorMessage) {
-        errorMsg = `${errorMessage}`;
-      }
-      console.log(errorCode, errorMsg);
-      const msg = `${response.status} ${response.statusText}; \r\n${errorMsg}`;
-      MessageBox.alert(msg, 'Error', {type: 'error'});
-    } else { //200
-      if (data.success === false) {
-        console.info('[HTTP ERROR]', response);
-        switch (data.errorCode) {
-          case 'USER_NEED_LOGIN':
-          case 'USER_SESSION_TIMEOUT':
-            //MessageBox.alert('you need login.');
-            if (!store.state.globalLoginDialog) {
-              store.commit(types.GLOBAL_LOGIN_DIALOG_OPEN);
-            }
-            break;
-          default:
-            if (!request.headers.has('ignoreGlobalDialog')) {
-              //const msg = `[${data.errorCode}]${data.errorMessage}`;
-              const msg = `${data.errorMessage}`;
-              MessageBox.alert(msg, 'Error', {type: 'error'});
-            }
-            break;
-        }
-        response.ok = false;
-        next(request.respondWith(data));
-        //throw data; // end http request, hack it
-      }
-
-      return response;
-    }
+  if (response.status === 0) { //ignore
+    console.warn('[HTTP status=0]');
     return response;
-  });
+  }
+  //check resp status
+  if (response.status !== 200) {
+
+    console.info('[HTTP ERROR]', response);
+
+    // if (request.headers.has('ignoreGlobalDialog')) {
+    //   return response;
+    // }
+
+    const {errorCode, errorMessage} = response.body || {};
+    let errorMsg = 'Server Internal Error. Please contact Administrator!';
+    if (errorMessage) {
+      errorMsg = `${errorMessage}`;
+    }
+    console.log(errorCode, errorMsg);
+    const msg = `${response.status} ${response.statusText}; \r\n${errorMsg}`;
+    MessageBox.alert(msg, 'Error', {type: 'error'});
+  } else { //200
+    if (data.success === false) {
+      console.info('[HTTP ERROR]', response);
+      switch (data.errorCode) {
+        case 'USER_NEED_LOGIN':
+        case 'USER_SESSION_TIMEOUT':
+          //MessageBox.alert('you need login.');
+          if (!store.state.globalLoginDialog) {
+            store.commit(types.GLOBAL_LOGIN_DIALOG_OPEN);
+          }
+          break;
+        // default:
+        //   if (!request.headers.has('ignoreGlobalDialog')) {
+        //     //const msg = `[${data.errorCode}]${data.errorMessage}`;
+        //     const msg = `${data.errorMessage}`;
+        //     MessageBox.alert(msg, 'Error', {type: 'error'});
+        //   }
+        //   break;
+      }
+      response.ok = false;
+      // next(request.respondWith(data));
+      //throw data; // end http request, hack it
+    }
+
+    return response;
+  }
+  return response;
+}, function (error) {
+  // Do something with response error
+  return Promise.reject(error);
 });
 
-const nprogress = new NProgress({parent: '.nprogress-container'})
+const nprogress = new NProgress({parent: '.nprogress-container'});
 
 const app = new Vue({
   router,
   store,
-  //i18n,
+  i18n,
   nprogress,
   ...App
 });
 
-export {app, router, store}
+export {app, router, store};

@@ -21,7 +21,7 @@
             <el-form-item :label="$t('APP_TYPE')" prop="appType">
               <el-select v-model="form.appType" placeholder="Please Select APP Type" :disabled="disableForm"
                          style="width:100%">
-                <el-option v-for="item in appTypes" :label="item.label" :value="item.value"/>
+                <el-option v-for="item in appTypes" :label="item.label" :value="item.value" :key="item.value"/>
               </el-select>
             </el-form-item>
           </el-col>
@@ -46,12 +46,12 @@
 
 
 <script type="text/babel">
-  import assignDeep from 'assign-deep'
-  import { mapActions } from 'vuex'
+  import assignDeep from 'assign-deep';
+  import { mapActions } from 'vuex';
 
-  import moduleStore from './bll/appStore'
-  import store from '../../store'
-  (!store.state.sysApp) && store.registerModule('sysApp', moduleStore)
+  import moduleStore from './bll/appStore';
+  import store from '../../store';
+  (!store.state.sysApp) && store.registerModule('sysApp', moduleStore);
 
   export default{
     data() {
@@ -85,7 +85,7 @@
             {required: true, message: 'This field is required.'}
           ]
         }
-      }
+      };
     },
 
     locales: {
@@ -150,7 +150,7 @@
                   confirmButtonText: 'OK'
                 });
               }
-            })
+            });
           } else {
             this.$message({
               showClose: true,
@@ -185,5 +185,5 @@
       }
 
     }
-  }
+  };
 </script>

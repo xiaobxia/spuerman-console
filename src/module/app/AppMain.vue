@@ -13,7 +13,7 @@
 </template>
 
 <script type="text/babel">
-  import Levelbar from './Levelbar'
+  import Levelbar from './Levelbar';
 
   export default {
     props: {
@@ -22,5 +22,5 @@
     components: {
       Levelbar
     }
-  }
+  };
 </script>

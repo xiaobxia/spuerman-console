@@ -15,8 +15,7 @@ function isPlainObject(obj) {
     return false;
   }
   let key;
-  for (key in obj) {
-  }
+  for (key in obj) {}
   return key === undefined || hasOwn.call(obj, key);
 }
 
@@ -62,4 +61,6 @@ function extend() {
   }
   return target;
 }
-module.exports = extend;
+export default {
+  extend
+};

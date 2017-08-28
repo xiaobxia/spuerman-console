@@ -13,4 +13,4 @@ const fileUtil = {
   }
 };
 
-module.exports = fileUtil;
+export default fileUtil;

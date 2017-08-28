@@ -25,20 +25,20 @@
 </template>
 
 <script type="text/babel">
-  import { mapActions } from 'vuex'
+  import { mapActions } from 'vuex';
 
-  import moduleStore from './bll/pictureUploadStore'
-  import store from '../../store'
-  (!store.state.sysFileUpload) && store.registerModule('sysFileUpload', moduleStore)
+  import moduleStore from './bll/pictureUploadStore';
+  import store from '../../store';
+  (!store.state.sysFileUpload) && store.registerModule('sysFileUpload', moduleStore);
 
-  import FileBucketForm from './pictureBucketForm.vue'
+  import FileBucketForm from './pictureBucketForm.vue';
 
   export default{
     data() {
       return {
         formMode: null,
         currentRecord: null
-      }
+      };
     },
     computed: {
       getSysBuckets() {
@@ -87,7 +87,7 @@
           return;
         }
 
-        this._deleteParam(this.currentRecord.bucketId)
+        this._deleteParam(this.currentRecord.bucketId);
       },
 
       refreshHandler() {
@@ -122,6 +122,6 @@
       }
 
     }
-  }
+  };
 </script>
 

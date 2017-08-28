@@ -9,7 +9,7 @@ const actions = {
     return http.get(`sys/logAudit/logAudits?pageIndex=${pageIndex}&pageSize=${pageSize}`)
       .then(logAudits => {
         commit(types.LOG_AUDIT_QUERY_LOGS_SUC, {logAudits});
-      })
+      });
   },
 
   querySysLogAuditsCount ({ commit }) {
@@ -18,7 +18,7 @@ const actions = {
     return http.get(`sys/logAudit/logAuditsCount`)
       .then(totalCount => {
         commit(types.LOG_AUDIT_QUERY_LOGS_COUNT_SUC, {totalCount});
-      })
+      });
   }
 };
 

@@ -1,6 +1,3 @@
-/**
- * Created by shi.pengyan on 2017-01-12.
- */
 import actions from './action';
 import mutations from './mutation';
 

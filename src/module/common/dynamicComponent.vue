@@ -14,7 +14,7 @@
         routeName: '',
         currentRouter: '',
         title: ''
-      }
+      };
     },
     created() {
       this.setCurrent();
@@ -41,5 +41,5 @@
 
       }
     }
-  }
+  };
 </script>

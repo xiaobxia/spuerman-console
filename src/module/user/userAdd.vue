@@ -81,13 +81,13 @@
 
 <script type="text/babel">
 
-  import { mapActions } from 'vuex'
-  import assignDeep from 'assign-deep'
-  import dateUtil from '../../util/dateUtil'
+  import { mapActions } from 'vuex';
+  import assignDeep from 'assign-deep';
+  import dateUtil from 'util/dateUtil';
 
-  import moduleStore from './bll/userStore'
-  import store from '../../store'
-  (!store.state.sysUser) && store.registerModule('sysUser', moduleStore)
+  import moduleStore from './bll/userStore';
+  import store from '../../store';
+  (!store.state.sysUser) && store.registerModule('sysUser', moduleStore);
 
   export default{
     data() {
@@ -123,7 +123,7 @@
             {required: true, message: 'This field is required.', trigger: 'change'}
           ]
         }
-      }
+      };
     },
 
     mounted() {
@@ -142,7 +142,7 @@
 
             if (userInfo.userEffDate) {
               if (typeof userInfo.userEffDate === 'object') {
-                userInfo.userEffDate = dateUtil.getDateTime(userInfo.userEffDate);
+                userInfo.userEffDate = dateUtil.formatToDayTime(userInfo.userEffDate);
               }
             } else {
               delete userInfo.userEffDate;
@@ -150,7 +150,7 @@
 
             if (userInfo.userExpDate) {
               if (typeof userInfo.userExpDate === 'object') {
-                userInfo.userExpDate = dateUtil.getDateTime(userInfo.userExpDate);
+                userInfo.userExpDate = dateUtil.formatToDayTime(userInfo.userExpDate);
               }
             } else {
               delete userInfo.userExpDate;
@@ -175,7 +175,7 @@
 
               }
 
-            })
+            });
           } else {
             this.$message({
               showClose: true,
@@ -199,7 +199,7 @@
         if (this.$route.query) {
           const userId = this.$route.query.userId;
           if (userId) {
-            this.pageModel = 'EDIT'
+            this.pageModel = 'EDIT';
             this.queryUser({userId}).then(user => {
               console.log(user);
               this.form = user; //TODO 不是很优雅
@@ -209,5 +209,5 @@
 
       }
     }
-  }
+  };
 </script>

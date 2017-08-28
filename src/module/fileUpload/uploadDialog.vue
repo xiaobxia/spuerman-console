@@ -1,4 +1,3 @@
-<!-- Created by shi.pengyan on 2017-03-29. -->
 <template>
   <div>
     <el-dialog
@@ -9,7 +8,7 @@
             <el-col :span="8">
               <el-form-item prop="bucketId">
                 <el-select placeholder="请选择存储空间" v-model="bucketId" style="width:100%">
-                  <el-option v-for="item in getSysBuckets" :label="item.bucketName" :value="item.bucketId"/>
+                  <el-option v-for="item in getSysBuckets" :label="item.bucketName" :value="item.bucketId" :key="item.bucketId"/>
                 </el-select>
               </el-form-item>
             </el-col>
@@ -50,7 +49,7 @@
         form: {},
         bucketId: 1,
         bucket: null
-      }
+      };
     },
 
     computed: {
@@ -174,5 +173,5 @@
         this.loading = false;
       }
     }
-  }
+  };
 </script>

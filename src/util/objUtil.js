@@ -10,7 +10,7 @@ const objUtil = {
       newArray = array.reduce(function (obj, str) {
         obj[str] = str;
         return obj;
-      }, {})
+      }, {});
     }
     return newArray;
   }

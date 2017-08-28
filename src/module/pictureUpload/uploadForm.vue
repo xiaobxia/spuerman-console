@@ -1,4 +1,3 @@
-<!-- Created by shi.pengyan on 2017-03-30. -->
 <template>
   <div>
     <el-card class="box-card" :body-style="{padding:'5px'}">
@@ -35,12 +34,12 @@
 
 
 <script type="text/babel">
-  import assignDeep from 'assign-deep'
-  import { mapActions } from 'vuex'
+  import assignDeep from 'assign-deep';
+  import { mapActions } from 'vuex';
 
-  import moduleStore from './bll/pictureUploadStore'
-  import store from '../../store'
-  (!store.state.sysFileUpload) && store.registerModule('sysFileUpload', moduleStore)
+  import moduleStore from './bll/pictureUploadStore';
+  import store from '../../store';
+  (!store.state.sysFileUpload) && store.registerModule('sysFileUpload', moduleStore);
 
   export default{
     data() {
@@ -52,7 +51,7 @@
           fileUrl: '',
           description: ''
         }
-      }
+      };
     },
 
     props: {
@@ -100,7 +99,7 @@
               self.$alert('更新信息成功', '消息', {
                 confirmButtonText: 'OK'
               });
-            })
+            });
           } else {
             this.$message({
               showClose: true,
@@ -135,6 +134,6 @@
       }
 
     }
-  }
+  };
 </script>
 

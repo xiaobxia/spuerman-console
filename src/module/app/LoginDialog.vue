@@ -29,7 +29,7 @@
 </template>
 
 <script type="text/babel">
-  import {mapActions, mapGetters} from 'vuex'
+  import {mapActions, mapGetters} from 'vuex';
 
   export default{
     name: 'LoginDialog',
@@ -52,7 +52,7 @@
             {min: 4, max: 20, message: 'The length should in 4-20 letters.', trigger: 'blur'}
           ]
         }
-      }
+      };
     },
     computed: mapGetters(['getGlobalLoginDialog']),
     methods: {
@@ -68,17 +68,17 @@
               userCode: this.form.userCode,
               pwd: this.form.pwd,
               clearUserInfo: false
-            }
+            };
 
             this.login(loginInfo).then(() => {
               console.log('login Success');
               this.$refs.form.resetFields();
               this.$message({message: 'Login Successfully!', type: 'success'});
-              this.dismissGlolbalLoginDialog()
+              this.dismissGlolbalLoginDialog();
             }).then(() => {
-              this._resetBtn()
+              this._resetBtn();
             }, () => {
-              this._resetBtn()
+              this._resetBtn();
             });
           } else {
             this.$message({
@@ -97,5 +97,5 @@
         this.btnResetDisabled = false;
       }
     }
-  }
+  };
 </script>

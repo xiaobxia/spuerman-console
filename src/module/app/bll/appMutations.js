@@ -1,10 +1,10 @@
-import * as types from '../../../store/mutationTypes'
+import * as types from '../../../store/mutationTypes';
 import routerUtil from '../../../router/routerUtil';
 
 const mutations = {
   //
   [types.LOGIN_BEGIN](state) {
-    state.loginUser = null
+    state.loginUser = null;
   },
   [types.LOGIN_SUC](state, {loginUser}) {
     state.loginUser = loginUser;
@@ -40,7 +40,7 @@ const mutations = {
   },
   //
   [types.APP_QUERY_MENU_BEGIN] (state) {
-    state.menu = []
+    state.menu = [];
   },
   [types.APP_QUERY_MENU_SUC] (state, {menu = []} = {}) {
 
@@ -63,4 +63,4 @@ const mutations = {
   }
 };
 
-export default mutations
+export default mutations;

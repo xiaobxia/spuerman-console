@@ -12,13 +12,13 @@
 </template>
 
 <script type="text/babel">
-  import moduleStore from './bll/dashboardStore'
-  import store from '../../store'
-  (!store.state.sysDashboard) && store.registerModule('sysDashboard', moduleStore)
+  import moduleStore from './bll/dashboardStore';
+  import store from '../../store';
+  (!store.state.sysDashboard) && store.registerModule('sysDashboard', moduleStore);
 
   export default{
     data() {
-      return {}
+      return {};
     },
     mounted() {
       this.initPage();
@@ -29,7 +29,7 @@
       }
     }
 
-  }
+  };
 </script>
 
 <style lang="scss" scoped>

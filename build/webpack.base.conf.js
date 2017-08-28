@@ -2,6 +2,9 @@ var path = require('path')
 var utils = require('./utils')
 var config = require('../config')
 var vueLoaderConfig = require('./vue-loader.conf')
+var os = require('os');
+var HappyPack = require('happypack');
+var happyThreadPool = HappyPack.ThreadPool({size: os.cpus().length});
 
 function resolve (dir) {
   return path.join(__dirname, '..', dir)
@@ -22,9 +25,20 @@ module.exports = {
     extensions: ['.js', '.vue', '.json'],
     alias: {
       'vue$': 'vue/dist/vue.esm.js',
-      '@': resolve('src')
+      '@': resolve('src'),
+      //通过module引入
+      'module': path.resolve(__dirname, '../src/module'),
+      'util': path.resolve(__dirname, '../src/util')
     }
   },
+  plugins: [
+    new HappyPack({
+      id: 'happyBabel',
+      loaders: ['babel-loader'],
+      threadPool: happyThreadPool,
+      verbose: true
+    })
+  ],
   module: {
     rules: [
       {
@@ -33,7 +47,9 @@ module.exports = {
         enforce: 'pre',
         include: [resolve('src'), resolve('test')],
         options: {
-          formatter: require('eslint-friendly-formatter')
+          formatter: require('eslint-friendly-formatter'),
+          //自动修复
+          fix: true
         }
       },
       {
@@ -41,10 +57,12 @@ module.exports = {
         loader: 'vue-loader',
         options: vueLoaderConfig
       },
+      //babel-loader很慢，要做好优化
       {
         test: /\.js$/,
-        loader: 'babel-loader',
-        include: [resolve('src'), resolve('test')]
+        loader: 'happypack/loader?id=happyBabel',
+        include: [resolve('src'), resolve('test')],
+        exclude: /node_modules/
       },
       {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
@@ -72,4 +90,4 @@ module.exports = {
       }
     ]
   }
-}
+};

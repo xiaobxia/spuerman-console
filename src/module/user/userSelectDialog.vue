@@ -30,11 +30,11 @@
 </template>
 
 <script type="text/babel">
-  import { mapActions, mapGetters } from 'vuex'
+  import { mapActions, mapGetters } from 'vuex';
 
-  import moduleStore from './bll/userStore'
-  import store from '../../store'
-  (!store.state.sysUser) && store.registerModule('sysUser', moduleStore)
+  import moduleStore from './bll/userStore';
+  import store from '../../store';
+  (!store.state.sysUser) && store.registerModule('sysUser', moduleStore);
 
   export default{
     data() {
@@ -43,7 +43,7 @@
         currentPage: 1,
         pageSize: 10,
         currentSelectedRecord: null
-      }
+      };
     },
     props: {
       closeHandler: {
@@ -65,7 +65,7 @@
         this.currentSelectedRecord = row;
       },
       handleSizeChange (val) {
-        console.log(`每页 ${val} 条`)
+        console.log(`每页 ${val} 条`);
         this.pageSize = val;
         this.queryUsers({pageIndex: 1, pageSize: val});
       },
@@ -111,7 +111,7 @@
           this.$nextTick(() => {
             //this.$refs.userTable.clearSelection();
             this.$refs.userTable.toggleRowSelection(this.currentSelectedRecord, false);
-          })
+          });
         }
       },
       close() {
@@ -119,5 +119,5 @@
       }
 
     }
-  }
+  };
 </script>

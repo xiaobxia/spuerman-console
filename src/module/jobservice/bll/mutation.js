@@ -1,6 +1,3 @@
-/**
- * Created by shi.pengyan on 2017-01-12.
- */
 import * as types from './mutationTypes';
 
 /**
@@ -8,9 +5,9 @@ import * as types from './mutationTypes';
  * @type {{}}
  */
 const mutations = {
-  [types.JOB_QUERY_JOB_BEGIN](state) {
-    state.params = [];
-  },
+  // [types.JOB_QUERY_JOB_BEGIN](state) {
+  //   state.params = [];
+  // },
   [types.JOB_QUERY_SUC](state, {params}) {
     state.params = params;
   },
@@ -19,7 +16,7 @@ const mutations = {
 
   },
   [types.JOB_QUERY_JOBS_COUNT_SUC](state, {totalCount}) {
-    state.totalCount = totalCount
+    state.totalCount = totalCount;
   },
 
   [types.JOB_ADD_SUC] (state, {param}) {

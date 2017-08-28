@@ -34,11 +34,11 @@
 
 <script type="text/babel">
 
-  import { mapActions } from 'vuex'
+  import { mapActions } from 'vuex';
 
-  import moduleStore from './bll/roleStore'
-  import store from '../../store'
-  (!store.state.sysRole) && store.registerModule('sysRole', moduleStore)
+  import moduleStore from './bll/roleStore';
+  import store from '../../store';
+  (!store.state.sysRole) && store.registerModule('sysRole', moduleStore);
 
   export default{
     data() {
@@ -61,7 +61,7 @@
             {required: true, message: 'This field is required.'}
           ]
         }
-      }
+      };
     },
 
     mounted() {
@@ -94,7 +94,7 @@
                 });
               }
 
-            })
+            });
           } else {
             this.$message({
               showClose: true,
@@ -118,7 +118,7 @@
         if (this.$route.query) {
           const roleId = this.$route.query.roleId;
           if (roleId) {
-            this.pageModel = 'EDIT'
+            this.pageModel = 'EDIT';
             this.querySysRole({roleId}).then(role => {
               console.log(role);
               this.form = role; //TODO 不是很优雅
@@ -128,5 +128,5 @@
 
       }
     }
-  }
+  };
 </script>

@@ -71,11 +71,11 @@
 </template>
 
 <script type="text/babel">
-  import { mapActions } from 'vuex'
+  import { mapActions } from 'vuex';
 
-  import moduleStore from './bll/pictureUploadStore'
-  import store from '../../store'
-  (!store.state.sysFileUpload) && store.registerModule('sysFileUpload', moduleStore)
+  import moduleStore from './bll/pictureUploadStore';
+  import store from '../../store';
+  (!store.state.sysFileUpload) && store.registerModule('sysFileUpload', moduleStore);
 
   import UploadDialog from './uploadDialog.vue';
   import UploadForm from './uploadForm.vue';
@@ -102,7 +102,7 @@
         },
         showQRCodeDialog: false,
         showFileBucketDialog: false
-      }
+      };
     },
     components: {UploadDialog, UploadForm, VueQrcode, FileBucketIndex},
     computed: {
@@ -228,7 +228,7 @@
       },
 
       handleSizeChange (val) {
-        console.log(`每页 ${val} 条`)
+        console.log(`每页 ${val} 条`);
         this.pageSize = val;
         if (this.form.fileName === '') {
           this.queryPictures({pageIndex: 1, pageSize: val});
@@ -257,10 +257,10 @@
           this.queryPicturesCount();
         }
         this.searchFiles({fileName: this.form.fileName});
-        this.searchFilesCount({fileName: this.form.fileName})
+        this.searchFilesCount({fileName: this.form.fileName});
       }
     }
-  }
+  };
 </script>
 
 <style lang="scss">

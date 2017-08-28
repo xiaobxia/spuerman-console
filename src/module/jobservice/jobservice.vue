@@ -1,4 +1,3 @@
-<!-- Created by shi.pengyan on 2017-01-05. -->
 <template>
   <div>
     <div class="btn-group-wrapper bottom">
@@ -56,13 +55,13 @@
 </template>
 
 <script type="text/babel">
-  import { mapActions, mapGetters } from 'vuex'
+  import { mapActions, mapGetters } from 'vuex';
 
-  import moduleStore from './bll/store'
-  import store from '../../store'
-  (!store.state.sysJobService) && store.registerModule('sysJobService', moduleStore)
+  import moduleStore from './bll/store';
+  import store from '../../store';
+  (!store.state.sysJobService) && store.registerModule('sysJobService', moduleStore);
 
-  import JobserviceForm from './jobserviceForm.vue'
+  import JobserviceForm from './jobserviceForm.vue';
 
   export default{
     data() {
@@ -71,7 +70,7 @@
         currentPage: 1,
         pageSize: 10,
         currentRecord: null
-      }
+      };
     },
     computed: {
       ...mapGetters(['getSysJobs', 'getSysJobTotalCount'])
@@ -119,7 +118,7 @@
           return;
         }
 
-        this._deleteJob(this.currentRecord.id)
+        this._deleteJob(this.currentRecord.id);
       },
 
       changeStateHandler () {
@@ -141,7 +140,7 @@
         this._deleteJob(row.id);
       },
       handleSizeChange (val) {
-        console.log(`每页 ${val} 条`)
+        console.log(`每页 ${val} 条`);
         this.pageSize = val;
         this.querySysJobs({pageIndex: 1, pageSize: val});
       },
@@ -173,6 +172,6 @@
       }
 
     }
-  }
+  };
 </script>
 

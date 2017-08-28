@@ -1,11 +1,4 @@
 /**
- * 过滤器
- * Created by shi.pengyan on 2016-10-30.
- */
-
-import dateUtil from '../common/dateUtil';
-
-/**
  * 大写过滤器
  * @param a
  * @returns {string}
@@ -70,12 +63,5 @@ export function percetageFormat(number, digits) {
   } else {
     result = Math.round(number * Math.pow(10, digits) * 100) / Math.pow(10, digits) + '%';
   }
-
-
   return result;
-};
-
-
-export function dateTimeFormat(timestamp) {
-  return dateUtil.format(timestamp);
 }

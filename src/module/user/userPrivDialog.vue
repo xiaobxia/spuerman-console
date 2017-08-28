@@ -21,11 +21,11 @@
 </template>
 
 <script type="text/babel">
-  import { mapActions } from 'vuex'
+  import { mapActions } from 'vuex';
 
-  import moduleStore from './bll/userStore'
-  import store from '../../store'
-  (!store.state.sysUser) && store.registerModule('sysUser', moduleStore)
+  import moduleStore from './bll/userStore';
+  import store from '../../store';
+  (!store.state.sysUser) && store.registerModule('sysUser', moduleStore);
 
   export default{
     data() {
@@ -33,7 +33,7 @@
         dialogVisible: false,
         pageSize: 10,
         currentSelectedRecord: null
-      }
+      };
     },
     props: {
       closeHandler: {
@@ -42,7 +42,7 @@
     },
     computed: {
       userPrivList() {
-        return this.$store.state.sysUser.userPrivList
+        return this.$store.state.sysUser.userPrivList;
       }
     },
     mounted() {
@@ -91,5 +91,5 @@
       }
 
     }
-  }
+  };
 </script>

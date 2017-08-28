@@ -1,9 +1,5 @@
-/**
- * Created by shi.pengyan on 2016-12-15.
- */
-
 import http from '../../../util/httpUtil';
-import * as types from '../../../store/mutationTypes'
+import * as types from '../../../store/mutationTypes';
 
 const actions = {
 
@@ -17,11 +13,11 @@ const actions = {
    */
   login ({ commit }, {userCode, pwd, clearUserInfo = true} = {}) {
 
-    clearUserInfo && commit(types.LOGIN_BEGIN)
+    clearUserInfo && commit(types.LOGIN_BEGIN);
 
     return http.post('sys/login', {userCode, pwd}).then(loginUser => {
-      commit(types.LOGIN_SUC, {loginUser})
-    })
+      commit(types.LOGIN_SUC, {loginUser});
+    });
   },
 
   /**
@@ -33,8 +29,8 @@ const actions = {
     commit(types.LOGIN_CHECK_BEGIN);
 
     return http.get('sys/isLogin').then(loginUser => {
-      commit(types.LOGIN_CHECK_SUC, {loginUser})
-    })
+      commit(types.LOGIN_CHECK_SUC, {loginUser});
+    });
   },
 
   /**
@@ -44,10 +40,9 @@ const actions = {
    */
   logout ({ commit }) {
     commit(types.LOGOUT_BEGIN);
-
     return http.get('sys/logout').then(data => {
-      commit(types.LOGOUT_SUC)
-    })
+      commit(types.LOGOUT_SUC);
+    });
   },
 
   /**
@@ -56,11 +51,11 @@ const actions = {
    * @returns {Promise.<T>}
    */
   queryMenu ({ commit }) {
-    commit(types.APP_QUERY_MENU_BEGIN)
+    commit(types.APP_QUERY_MENU_BEGIN);
 
     return http.get('sys/priv/menu').then(menu => {
-      commit(types.APP_QUERY_MENU_SUC, {menu})
-    })
+      commit(types.APP_QUERY_MENU_SUC, {menu});
+    });
   },
 
   changePwd({ commit }, {oldPwd, newPwd}) {
@@ -70,9 +65,9 @@ const actions = {
   },
 
   dismissGlobalLoginDialog({ commit }) {
-    commit(types.GLOBAL_LOGIN_DIALOG_DISMISS)
+    commit(types.GLOBAL_LOGIN_DIALOG_DISMISS);
   }
-}
+};
 
 
-export default actions
+export default actions;

@@ -25,11 +25,11 @@
 </template>
 
 <script type="text/babel">
-  import { mapActions, mapGetters } from 'vuex'
+  import { mapActions, mapGetters } from 'vuex';
 
-  import moduleStore from './bll/logAuditStore'
-  import store from '../../store'
-  (!store.state.sysLogAudit) && store.registerModule('sysLogAudit', moduleStore)
+  import moduleStore from './bll/logAuditStore';
+  import store from '../../store';
+  (!store.state.sysLogAudit) && store.registerModule('sysLogAudit', moduleStore);
 
   export default{
     data() {
@@ -38,7 +38,7 @@
         currentPage: 1,
         pageSize: 10,
         currentRecord: null
-      }
+      };
     },
     computed: {
       ...mapGetters(['getSysLogAudits', 'getSysLogAuditTotalCount'])
@@ -58,7 +58,7 @@
       },
 
       handleSizeChange (val) {
-        console.log(`每页 ${val} 条`)
+        console.log(`每页 ${val} 条`);
         this.pageSize = val;
         this.querySysLogAudits({pageIndex: 1, pageSize: val});
       },
@@ -69,5 +69,5 @@
         this.querySysLogAudits({pageIndex: val, pageSize: this.pageSize});
       }
     }
-  }
+  };
 </script>

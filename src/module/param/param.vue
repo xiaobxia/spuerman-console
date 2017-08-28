@@ -49,13 +49,13 @@
 </template>
 
 <script type="text/babel">
-  import { mapActions, mapGetters } from 'vuex'
+  import { mapActions, mapGetters } from 'vuex';
 
-  import moduleStore from './bll/paramStore'
-  import store from '../../store'
-  (!store.state.sysParam) && store.registerModule('sysParam', moduleStore)
+  import moduleStore from './bll/paramStore';
+  import store from '../../store';
+  (!store.state.sysParam) && store.registerModule('sysParam', moduleStore);
 
-  import ParamForm from './paramForm.vue'
+  import ParamForm from './paramForm.vue';
 
   export default{
     data() {
@@ -64,7 +64,7 @@
         currentPage: 1,
         pageSize: 10,
         currentRecord: null
-      }
+      };
     },
     computed: {
       ...mapGetters(['getSysParams', 'getSysParamTotalCount'])
@@ -112,7 +112,7 @@
           return;
         }
 
-        this._deleteParam(this.currentRecord.id)
+        this._deleteParam(this.currentRecord.id);
       },
 
       changeStateHandler () {
@@ -134,7 +134,7 @@
         this._deleteParam(row.id);
       },
       handleSizeChange (val) {
-        console.log(`每页 ${val} 条`)
+        console.log(`每页 ${val} 条`);
         this.pageSize = val;
         this.querySysParams({pageIndex: 1, pageSize: val});
       },
@@ -166,5 +166,5 @@
       }
 
     }
-  }
+  };
 </script>

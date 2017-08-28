@@ -66,7 +66,7 @@ const actions = {
     commit(types.SYS_FILE_UPLOAD_QUERY_FILES_COUNT_BEGIN);
 
     return http.get('sys/upload/filesCount').then(totalCount => {
-      commit(types.SYS_FILE_UPLOAD_QUERY_FILES_COUNT_SUC, {totalCount})
+      commit(types.SYS_FILE_UPLOAD_QUERY_FILES_COUNT_SUC, {totalCount});
     });
   },
 
@@ -74,7 +74,7 @@ const actions = {
     commit(types.SYS_FILE_UPLOAD_QUERY_FILES_COUNT_BEGIN);
 
     return http.get('sys/upload/picturesCount').then(totalCount => {
-      commit(types.SYS_FILE_UPLOAD_QUERY_FILES_COUNT_SUC, {totalCount})
+      commit(types.SYS_FILE_UPLOAD_QUERY_FILES_COUNT_SUC, {totalCount});
     });
   },
 
@@ -82,7 +82,7 @@ const actions = {
     commit(types.SYS_FILE_UPLOAD_QUERY_FILES_COUNT_BEGIN);
 
     return http.get(`sys/upload/searchFileCount?fileName=${fileName}`).then(totalCount => {
-      commit(types.SYS_FILE_UPLOAD_QUERY_FILES_COUNT_SUC, {totalCount})
+      commit(types.SYS_FILE_UPLOAD_QUERY_FILES_COUNT_SUC, {totalCount});
     });
   },
 
@@ -90,7 +90,7 @@ const actions = {
     commit(types.SYS_FILE_BUCKET_QUERY_LIST_BEGIN);
     return http.get('sys/fileBucket/list').then(buckets => {
       commit(types.SYS_FILE_BUCKET_QUERY_LIST_SUC, {buckets});
-    })
+    });
   },
 
   saveBucket({ commit }, fileBucket) {

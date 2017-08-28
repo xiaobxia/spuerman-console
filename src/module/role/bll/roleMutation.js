@@ -61,7 +61,7 @@ const mutations = {
 
   //USERROLE
   [types.USERROLE_QUERY_BEGIN](state) {
-    state.userroles = []
+    state.userroles = [];
   },
   [types.USERROLE_QUERY_SUC](state, {userroles}) {
     state.userroles = userroles;
@@ -92,7 +92,7 @@ const mutations = {
 
   // ROLEPRIV
   [types.ROLEPRIV_QUERY_BEGIN](state) {
-    state.roleprivs = []
+    state.roleprivs = [];
   },
   [types.ROLEPRIV_QUERY_SUC](state, {roleprivs}) {
     state.roleprivs = roleprivs;

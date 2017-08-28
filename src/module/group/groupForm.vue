@@ -46,12 +46,12 @@
 </template>
 
 <script type="text/babel">
-  import assignDeep from 'assign-deep'
-  import { mapActions } from 'vuex'
+  import assignDeep from 'assign-deep';
+  import { mapActions } from 'vuex';
 
-  import groupStore from './bll/groupStore'
-  import store from '../../store'
-  (!store.state.sysGroup) && store.registerModule('sysGroup', groupStore)
+  import groupStore from './bll/groupStore';
+  import store from '../../store';
+  (!store.state.sysGroup) && store.registerModule('sysGroup', groupStore);
 
   export default{
     data() {
@@ -79,7 +79,7 @@
             {required: true, message: '此项不能为空'}
           ]
         }
-      }
+      };
     },
 
     props: {
@@ -138,7 +138,7 @@
                   confirmButtonText: '确认'
                 });
               }
-            })
+            });
           } else {
             this.$message({
               showClose: true,
@@ -173,5 +173,5 @@
       }
 
     }
-  }
+  };
 </script>

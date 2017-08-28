@@ -153,7 +153,7 @@
 </style>
 
 <script type="text/babel">
-  import { mapActions } from 'vuex'
+  import { mapActions } from 'vuex';
 
   export default{
     name: 'LOGIN',
@@ -193,8 +193,6 @@
     methods: {
       ...mapActions(['login']),
       loginHandler () {
-        _czc.push(['_trackEvent', 'page', 'login']);
-
         if (!this.form.userCode) {
           this.$refs.userCodeEl.$el.querySelector('input').focus();
           return;
@@ -213,18 +211,18 @@
               userCode: this.form.userCode,
               pwd: this.form.pwd,
               clearUserInfo: false
-            }
+            };
 
             this.login(loginInfo).then(() => {
               console.log('login Success');
 
-              this.$router.push('/dashboard')
+              this.$router.push('/dashboard');
 
             }).then(() => {
-              this._resetBtn()
+              this._resetBtn();
             }, () => {
-              this._resetBtn()
-            })
+              this._resetBtn();
+            });
           } else {
             this.$message({
               showClose: true,
@@ -244,5 +242,5 @@
         this.btnResetDisabled = false;
       }
     }
-  }
+  };
 </script>

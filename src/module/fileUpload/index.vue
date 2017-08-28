@@ -1,4 +1,3 @@
-<!-- Created by shi.pengyan on 2016-10-30. -->
 <template>
   <div>
     <div>
@@ -64,11 +63,11 @@
 </template>
 
 <script type="text/babel">
-  import { mapActions } from 'vuex'
+  import { mapActions } from 'vuex';
 
-  import moduleStore from './bll/fileUploadStore'
-  import store from '../../store'
-  (!store.state.sysFileUpload) && store.registerModule('sysFileUpload', moduleStore)
+  import moduleStore from './bll/fileUploadStore';
+  import store from '../../store';
+  (!store.state.sysFileUpload) && store.registerModule('sysFileUpload', moduleStore);
 
   import UploadDialog from './uploadDialog.vue';
   import UploadForm from './uploadForm.vue';
@@ -91,7 +90,7 @@
         },
         showQRCodeDialog: false,
         showFileBucketDialog: false
-      }
+      };
     },
     components: {UploadDialog, UploadForm, VueQrcode, FileBucketIndex},
     computed: {
@@ -216,7 +215,7 @@
       },
 
       handleSizeChange (val) {
-        console.log(`每页 ${val} 条`)
+        console.log(`每页 ${val} 条`);
         this.pageSize = val;
         this.queryFiles({pageIndex: 1, pageSize: val});
       },
@@ -233,7 +232,7 @@
       }
 
     }
-  }
+  };
 </script>
 
 <style lang="scss">

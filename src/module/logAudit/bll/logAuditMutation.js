@@ -17,7 +17,7 @@ const mutations = {
 
   },
   [types.LOG_AUDIT_QUERY_LOGS_COUNT_SUC](state, {totalCount}) {
-    state.totalCount = totalCount
+    state.totalCount = totalCount;
   }
 };
 

@@ -1,7 +1,3 @@
-/**
- * Created by shi.pengyan on 2017-01-12.
- */
-//file upload
 export const SYS_FILE_UPLOAD_QUERY_TOKEN = 'SYS_FILE_UPLOAD_QUERY_TOKEN';
 export const SYS_FILE_UPLOAD_SAVE_FILE_BEGIN = 'SYS_FILE_UPLOAD_SAVE_FILE_BEGIN';
 export const SYS_FILE_UPLOAD_SAVE_FILE_SUC = 'SYS_FILE_UPLOAD_SAVE_FILE_SUC';

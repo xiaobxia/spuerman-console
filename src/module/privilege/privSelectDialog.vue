@@ -41,13 +41,13 @@
 </template>
 
 <script type="text/babel">
-  import { mapActions } from 'vuex'
+  import { mapActions } from 'vuex';
 
-  import moduleStore from './bll/privStore'
-  import store from '../../store'
-  (!store.state.sysPriv) && store.registerModule('sysPriv', moduleStore)
+  import moduleStore from './bll/privStore';
+  import store from '../../store';
+  (!store.state.sysPriv) && store.registerModule('sysPriv', moduleStore);
 
-  import privUtil from './bll/privUtil'
+  import privUtil from './bll/privUtil';
 
   export default{
     data() {
@@ -60,7 +60,7 @@
           children: 'children',
           label: 'name'
         }
-      }
+      };
     },
     props: {
       closeHandler: {
@@ -97,7 +97,7 @@
       },
 
       handleSizeChange (val) {
-        console.log(`每页 ${val} 条`)
+        console.log(`每页 ${val} 条`);
         this.pageSize = val;
         this.queryPrivs({pageIndex: 1, pageSize: val});
       },
@@ -157,7 +157,7 @@
           this.$nextTick(() => {
             //this.$refs.userTable.clearSelection();
             //this.$refs.userTable.toggleRowSelection(this.currentSelectedRecord, false);
-          })
+          });
         }
       },
       close() {
@@ -165,5 +165,5 @@
       }
 
     }
-  }
+  };
 </script>

@@ -16,19 +16,19 @@
 
 <script type="text/babel">
   import Vue from 'vue';
-  import { mapState, mapActions } from 'vuex'
-  import NprogressContainer from 'vue-nprogress/src/NprogressContainer'
-  import { Navbar, Sidebar, AppMain, Login, LoginDialog } from './module/app'
+  import { mapState, mapActions } from 'vuex';
+  import NprogressContainer from 'vue-nprogress/src/NprogressContainer';
+  import { Navbar, Sidebar, AppMain, Login, LoginDialog } from './module/app';
   export default {
     name: 'APP',
     data () {
       return {
         eventBus: new Vue()
-      }
+      };
     },
     computed: {
       config () {
-        return this.$store.state.config
+        return this.$store.state.config;
       },
       userHasLogin () {
         return this.$store.state.loginUser != null;
@@ -49,5 +49,5 @@
     methods: {
       ...mapActions(['checkLogin'])
     }
-  }
+  };
 </script>

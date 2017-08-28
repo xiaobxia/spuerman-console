@@ -57,12 +57,12 @@
 
 
 <script type="text/babel">
-  import assignDeep from 'assign-deep'
-  import { mapActions } from 'vuex'
+  import assignDeep from 'assign-deep';
+  import { mapActions } from 'vuex';
 
-  import moduleStore from './bll/paramStore'
-  import store from '../../store'
-  (!store.state.sysParam) && store.registerModule('sysParam', moduleStore)
+  import moduleStore from './bll/paramStore';
+  import store from '../../store';
+  (!store.state.sysParam) && store.registerModule('sysParam', moduleStore);
 
   export default{
     data() {
@@ -88,7 +88,7 @@
             {required: true, message: 'This field is required.', trigger: 'change'}
           ]
         }
-      }
+      };
     },
 
     props: {
@@ -147,7 +147,7 @@
                   confirmButtonText: 'OK'
                 });
               }
-            })
+            });
           } else {
             this.$message({
               showClose: true,
@@ -182,5 +182,5 @@
       }
 
     }
-  }
+  };
 </script>
