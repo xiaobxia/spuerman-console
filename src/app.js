@@ -32,6 +32,8 @@ router.beforeEach((to, from, next) => {
   // store.commit(types.GLOBAL_LOADING, {loading: true})
   switch (to.path) {
     case '/':
+      next();
+      break;
     case '/dashboard':
       next();
       break;
