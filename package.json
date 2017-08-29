@@ -1,8 +1,8 @@
 {
-  "name": "spuerman-console",
+  "name": "superman-console",
   "version": "1.0.0",
   "description": "A Vue.js project",
-  "author": "chenlingjie <chenlingjie@cd121.com>",
+  "author": "xiaobxia",
   "private": true,
   "scripts": {
     "dev": "node build/dev-server.js",

@@ -1,4 +1,4 @@
-# spuerman-console
+# superman-console
 
 > A Vue.js project
 
