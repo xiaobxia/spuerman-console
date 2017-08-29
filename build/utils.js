@@ -21,7 +21,7 @@ exports.cssLoaders = function (options) {
   }
 
   // generate loader string to be used with extract text plugin
-  function generateLoaders (loader, loaderOptions) {
+  function generateLoaders(loader, loaderOptions) {
     var loaders = [cssLoader]
     if (loader) {
       loaders.push({
@@ -35,10 +35,14 @@ exports.cssLoaders = function (options) {
     // Extract CSS when that option is specified
     // (which is the case during production build)
     if (options.extract) {
-      return ExtractTextPlugin.extract({
+      let opt = {
         use: loaders,
-        fallback: 'vue-style-loader'
-      })
+        fallback: 'vue-style-loader',
+      };
+      if (process.env.NODE_ENV === 'production') {
+        opt.publicPath = config.build.assetsPathInCss;
+      }
+      return ExtractTextPlugin.extract(opt)
     } else {
       return ['vue-style-loader'].concat(loaders)
     }
@@ -49,7 +53,7 @@ exports.cssLoaders = function (options) {
     css: generateLoaders(),
     postcss: generateLoaders(),
     less: generateLoaders('less'),
-    sass: generateLoaders('sass', { indentedSyntax: true }),
+    sass: generateLoaders('sass', {indentedSyntax: true}),
     scss: generateLoaders('sass'),
     stylus: generateLoaders('stylus'),
     styl: generateLoaders('stylus')
