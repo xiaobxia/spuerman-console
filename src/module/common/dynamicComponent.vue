@@ -17,7 +17,7 @@
     },
     created() {
       //动态组件
-      //this.setCurrent();
+      this.setCurrent();
     },
     methods: {
       setCurrent() {

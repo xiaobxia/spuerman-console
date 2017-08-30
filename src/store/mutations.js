@@ -1,7 +1,7 @@
 /**
  * Created by xiaobxia on 2017/8/28.
  */
-import assignDeep from 'assign-deep';
+//import assignDeep from 'assign-deep';
 import * as types from './mutationTypes';
 const mutations = {
   SIDEBAR (state, status = true) {
@@ -16,9 +16,9 @@ const mutations = {
   [types.GLOBAL_LOGIN_DIALOG_DISMISS] (state) {
     state.globalLoginDialog = false;
   },
-  [types.GLOBAL_ADD_ROUTES](state, data) {
-    state.routes = assignDeep({}, state.routes, {[data.name]: data.component});
-  },
+  // [types.GLOBAL_ADD_ROUTES](state, data) {
+  //   state.routes = assignDeep({}, state.routes, {[data.name]: data.component});
+  // },
   [types.SIDEBAR_MENU_OPEN] (state, {item}) {
     item.meta.expanded = true;
   },

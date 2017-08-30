@@ -8,7 +8,7 @@ Vue.use(Router);
 
 let dashboardComponent = routerUtil.lazyLoading('common/dashboard');
 //let dynamicComponent = routerUtil.lazyLoading('common/dynamicComponent')
-import dynamicComponent from '../module/common/dynamicComponent.vue';
+//import dynamicComponent from '../module/common/dynamicComponent.vue';
 
 export default new Router({
   mode: 'hash', // hash, history
@@ -25,12 +25,12 @@ export default new Router({
       path: '/home',
       component: dashboardComponent
     },
-    ...routerUtil.generateRoutesFromMenu(routers),
-    {
-      name: 'Dynamic',
-      path: '/:name',
-      component: dynamicComponent
-    }
+    ...routerUtil.generateRoutesFromMenu(routers)
+    // {
+    //   name: 'Dynamic',
+    //   path: '/:name',
+    //   component: dynamicComponent
+    // }
     //{
     //  path: '*',
     //  redirect: '/'
