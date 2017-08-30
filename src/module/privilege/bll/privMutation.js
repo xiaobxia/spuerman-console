@@ -1,5 +1,5 @@
 import * as types from './privMutationTypes';
-import arrayUtil from '../../../util/arrayUtil';
+import arrayUtil from 'util/arrayUtil';
 
 /**
  * mutations
@@ -46,7 +46,7 @@ const mutations = {
   },
 
   [types.PRIV_DELETE_SUC](state, {privId}) {
-    arrayUtil.removeItem(state.privs, 'privId', privId);
+    arrayUtil.removeObjectItem(state.privs, 'privId', privId);
   },
 
   [types.PRIV_DELETE_FAIL](state) {

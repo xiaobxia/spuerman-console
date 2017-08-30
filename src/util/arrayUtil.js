@@ -1,10 +1,12 @@
 const arrayUtil = {
-  findItem(array, keyName, keyValue) {
-    return array.find((item) => {
-      return item[keyName] === keyValue;
-    });
+  findObjectItem(array, keyName, keyValue) {
+    for (let k = 0, len = array.length; k < len; k++) {
+      if (array[k][keyName] === keyValue) {
+        return array[k];
+      }
+    }
   },
-  removeItem(array, keyName, keyValue) {
+  removeObjectItem(array, keyName, keyValue) {
     for (let i = 0; i < array.length; i++) {
       let item = array[i];
       if (item[keyName] === keyValue) {
@@ -13,7 +15,6 @@ const arrayUtil = {
       }
     }
   }
-
 };
 
 export default arrayUtil;

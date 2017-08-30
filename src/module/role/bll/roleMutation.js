@@ -1,4 +1,4 @@
-import arrayUtil from '../../../util/arrayUtil';
+import arrayUtil from 'util/arrayUtil';
 import * as types from './roleMutationTypes';
 
 /**
@@ -40,7 +40,7 @@ const mutations = {
 
   [types.ROLE_DELETE_SUC](state, {roleId}) {
 
-    arrayUtil.removeItem(state.roles, 'roleId', roleId);
+    arrayUtil.removeObjectItem(state.roles, 'roleId', roleId);
     state.totalCount = state.totalCount - 1;
     //for (let i = 0; i < state.roles.length; i++) {
     //  let role = state.roles[i];

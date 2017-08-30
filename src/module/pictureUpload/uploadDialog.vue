@@ -35,8 +35,8 @@
 
 <script type="text/babel">
   import {mapActions} from 'vuex';
-  import fileUtil from '../../util/fileUtil';
-  import arrayUtil from '../../util/arrayUtil';
+  import fileUtil from 'util/fileUtil';
+  import arrayUtil from 'util/arrayUtil';
 
   export default{
     name: 'simple-upload-dialog',
@@ -160,7 +160,7 @@
       },
 
       findBucket(bucketId) {
-        return arrayUtil.findItem(this.getSysBuckets, 'bucketId', bucketId);
+        return arrayUtil.findObjectItem(this.getSysBuckets, 'bucketId', bucketId);
       },
 
       //interface

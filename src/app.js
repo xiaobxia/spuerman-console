@@ -15,7 +15,7 @@ import i18n from './i18n';
 //全局store
 import store from './store';
 import * as types from './store/mutationTypes';
-import http from './util/httpUtil';
+import http from 'util/httpUtil';
 
 Vue.use(NProgress);
 Vue.use(VueClipboards);

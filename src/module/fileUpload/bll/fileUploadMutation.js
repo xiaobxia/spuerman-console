@@ -1,5 +1,5 @@
 import * as types from './fileUploadMutationTypes';
-import arrayUtil from '../../../util/arrayUtil';
+import arrayUtil from 'util/arrayUtil';
 import assignDeep from 'assign-deep';
 
 /**
@@ -28,7 +28,7 @@ const mutations = {
   },
 
   [types.SYS_FILE_UPLOAD_DELETE_SUC](state, {id}) {
-    arrayUtil.removeItem(state.files, 'id', id);
+    arrayUtil.removeObjectItem(state.files, 'id', id);
   },
 
   [types.SYS_FILE_UPLOAD_QUERY_FILES_BEGIN](state) {
@@ -62,7 +62,7 @@ const mutations = {
   },
 
   [types.SYS_FILE_BUCKET_DEL_SUC](state, {bucketId}) {
-    arrayUtil.removeItem(state.buckets, 'bucketId', bucketId);
+    arrayUtil.removeObjectItem(state.buckets, 'bucketId', bucketId);
   },
 
   [types.SYS_FILE_BUCKET_QUERY_LIST_BEGIN](state) {
