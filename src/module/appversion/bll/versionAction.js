@@ -2,7 +2,7 @@ import http from 'util/httpUtil';
 import * as types from './versionMutationTypes';
 
 const actions = {
-  querySysApps ({ commit }) {
+  querySysVApps ({ commit }) {
     return http.get('sys/app/apps').then(apps => {
       commit(types.VERSION_APP_QUERY_APPS_SUC, {apps});
     });

@@ -16,7 +16,7 @@ import i18n from './i18n';
 //全局store
 import store from './store';
 import * as types from './store/mutationTypes';
-import http from './util/httpUtil';
+//import http from './util/httpUtil';
 
 Vue.use(NProgress);
 Vue.use(VueClipboards);
@@ -28,7 +28,8 @@ sync(store, router);
 // 进入路由前的钩子
 router.beforeEach((to, from, next) => {
   // document.body.scrollTop = 0;
-
+  console.log('to', to);
+  console.log('from', from);
   // store.commit(types.GLOBAL_LOADING, {loading: true})
   switch (to.path) {
     case '/':
@@ -43,19 +44,19 @@ router.beforeEach((to, from, next) => {
         next();
         return;
       }
-
+      next();
       // 菜单权限校验
-      http.post('sys/user/checkUserMenuPriv', {path: to.path}).then(hasPriv => {
-        if (hasPriv) {
-          next();
-        } else {
-          next(false);// 中断当前的导航
-          // closeGlobalLoading();
-          MessageBox.alert('没有菜单权限，请联系您的管理员！', 'Error', {type: 'error'});
-        }
-      }, () => {
-        // closeGlobalLoading();
-      });
+      // http.post('sys/user/checkUserMenuPriv', {path: to.path}).then(hasPriv => {
+      //   if (hasPriv) {
+      //     next();
+      //   } else {
+      //     next(false);// 中断当前的导航
+      //     // closeGlobalLoading();
+      //     MessageBox.alert('没有菜单权限，请联系您的管理员！', 'Error', {type: 'error'});
+      //   }
+      // }, () => {
+      //   // closeGlobalLoading();
+      // });
       break;
   }
 });

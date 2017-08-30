@@ -1,4 +1,3 @@
-
 <template>
   <keep-alive>
     <component :is="currentRouter" :moduleName="title"></component>
@@ -17,7 +16,8 @@
       };
     },
     created() {
-      this.setCurrent();
+      //动态组件
+      //this.setCurrent();
     },
     methods: {
       setCurrent() {

@@ -156,10 +156,10 @@
     methods: {
       ...mapActions([
         'saveVersion', 'updateVersion', 'deleteVersion',
-        'querySysApps'
+        'querySysVApps'
       ]),
       initPage() {
-        this.querySysApps();
+        this.querySysVApps();
       },
       saveHandler () {
         let self = this;
