@@ -1,17 +1,17 @@
 /**
- * Created by xiaobxia on 2017/8/25.
+ * Created by xiaobxia on 2017/8/31.
  */
 export default {
   PRODUCT_BRAND: 'Superman Suite',
   APP_NAME: 'Superman Console',
   APP_SLOGAN: ' It\'s clean, simple and efficient. SuperMan Console, you will love her!',
   APP_ABOUT: '基于VUE2.0的前端平台框架',
-  ABOUT: '关于',
-  SIGN_IN: '用户登录',
-  LOGIN: '登录',
-  LOGOUT: '注销',
-  RESET: '重置',
-  USERNAME: '用户',
+  ABOUT: 'About',
+  SIGN_IN: 'Sign In',
+  LOGIN: 'Login',
+  LOGOUT: 'Logout',
+  RESET: 'Reset',
+  USERNAME: 'Username',
   USER_ID_PLACEHOLDER: '请输入用户名',
   PWD: '密码',
   CHANGE_PWD: '修改密码',
@@ -32,7 +32,7 @@ export default {
   ORIGIN_PWD: '原密码',
   NEW_PWD: '新密码',
   CONFIRM_NEW_PWD: '确认新密码',
-  SESSION_TIMEOUT: '登录超时，请重新登录',
+  SESSION_TIMEOUT: '登陆超时，请重新登陆',
   FORM_INVALID: '请检查表单信息',
   PLZ_SELECT_RECORD: '请选择一条记录',
   DEL_CONFIRM: '确定要删除吗？',
