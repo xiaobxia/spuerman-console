@@ -10,7 +10,8 @@ module.exports = {
     //解决打包时font的问题
     assetsPathInCss: '../../',
     assetsPublicPath: './',
-    productionSourceMap: true,
+    //打包就移除sourceMap
+    productionSourceMap: false,
     // Gzip off by default as many popular static hosts such as
     // Surge or Netlify already gzip all static assets for you.
     // Before setting to `true`, make sure to:
