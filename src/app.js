@@ -67,28 +67,9 @@ Object.keys(filters).forEach(key => {
 axios.interceptors.response.use(function (response) {
   // Do something with response data
   let data = response.data;
-
   if (response.status === 0) { //ignore
     console.warn('[HTTP status=0]');
     return response;
-  }
-  //check resp status
-  if (response.status !== 200) {
-
-    console.info('[HTTP ERROR]', response);
-
-    // if (request.headers.has('ignoreGlobalDialog')) {
-    //   return response;
-    // }
-
-    const {errorCode, errorMessage} = response.data || {};
-    let errorMsg = 'Server Internal Error. Please contact Administrator!';
-    if (errorMessage) {
-      errorMsg = `${errorMessage}`;
-    }
-    console.log(errorCode, errorMsg);
-    const msg = `${response.status} ${response.statusText}; \r\n${errorMsg}`;
-    MessageBox.alert(msg, 'Error', {type: 'error'});
   } else { //200
     if (data.success === false) {
       console.info('[HTTP ERROR]', response);
@@ -112,11 +93,23 @@ axios.interceptors.response.use(function (response) {
       // next(request.respondWith(data));
       //throw data; // end http request, hack it
     }
-
     return response;
   }
-  return response;
 }, function (error) {
+  console.log('in error')
+  let response = error.response;
+  console.info('[HTTP ERROR]', response);
+  // if (request.headers.has('ignoreGlobalDialog')) {
+  //   return response;
+  // }
+  const {errorCode, errorMessage} = response.data || {};
+  let errorMsg = 'Server Internal Error. Please contact Administrator!';
+  if (errorMessage) {
+    errorMsg = `${errorMessage}`;
+  }
+  console.log(errorCode, errorMsg);
+  const msg = `${response.status} ${response.statusText}; \r\n${errorMsg}`;
+  MessageBox.alert(msg, 'Error', {type: 'error'});
   // Do something with response error
   return Promise.reject(error);
 });
