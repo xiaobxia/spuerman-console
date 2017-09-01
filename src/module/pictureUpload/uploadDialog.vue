@@ -16,7 +16,7 @@
         </el-form>
 
         <el-upload
-          action="//upload.qiniu.com/"
+          action="http://upload-z2.qiniu.com/"
           drag
           :show-file-list="false"
           :before-upload="beforeUpload"
