@@ -1,6 +1,5 @@
 <template>
   <div>
-
     <div class="btn-group-wrapper">
       <el-button-group>
         <el-button type="primary" icon="plus" @click="addHandler"/>
@@ -12,13 +11,11 @@
         <el-button type="primary" @click="changeStateHandler">Enable/Disable</el-button>
       </el-button-group>
     </div>
-
     <!--<el-tree :data="getSysPrivs" :props="defaultProps" style="min-height:500px"-->
     <!--:highlight-current="true"-->
     <!--:default-expand-all="true"-->
     <!--:render-content="renderTreeRowContent"-->
     <!--@node-click="handleNodeClick"></el-tree>-->
-
     <el-table :data="privList" height="500" border :stripe="true" :highlight-current-row="true"
               @current-change="tableRowChangeClickHandler"
               style="width: 100%">
@@ -32,7 +29,6 @@
       <el-table-column prop="createDate" label="Create Date" width="155"/>
       <el-table-column prop="description" label="Description"/>
     </el-table>
-
     <div class="block">
       <el-pagination
         @size-change="handleSizeChange"
@@ -89,7 +85,7 @@
     },
 
     methods: {
-      ...mapActions(['queryPrivs', 'queryPrivsCount', 'deletePriv']),
+      ...mapActions('sysPriv', ['queryPrivs', 'queryPrivsCount', 'deletePriv']),
 
       initPage() {
         this.queryPrivs();

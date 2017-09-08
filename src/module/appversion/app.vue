@@ -1,6 +1,5 @@
 <template>
   <div>
-
     <div class="btn-group-wrapper bottom">
       <el-button-group>
         <el-button type="primary" icon="plus" @click="addHandler"/>
@@ -42,7 +41,7 @@
       };
     },
     computed: {
-      ...mapGetters(['getSysApps'])
+      ...mapGetters('sysApp', ['getSysApps'])
     },
 
     components: {AppForm},
@@ -51,7 +50,7 @@
     },
 
     methods: {
-      ...mapActions(['querySysApps', 'deleteSysApp']),
+      ...mapActions('sysApp', ['querySysApps', 'deleteSysApp']),
 
       initPage() {
         console.log('[App Page] mounted');

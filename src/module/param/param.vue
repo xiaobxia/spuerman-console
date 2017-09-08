@@ -67,7 +67,7 @@
       };
     },
     computed: {
-      ...mapGetters(['getSysParams', 'getSysParamTotalCount'])
+      ...mapGetters('sysParam', ['getSysParams', 'getSysParamTotalCount'])
     },
 
     components: {ParamForm},
@@ -76,7 +76,7 @@
     },
 
     methods: {
-      ...mapActions(['querySysParams', 'querySysParamsCount', 'deleteSysParam']),
+      ...mapActions('sysParam', ['querySysParams', 'querySysParamsCount', 'deleteSysParam']),
 
       initPage() {
         console.log('[Param Page] mounted');

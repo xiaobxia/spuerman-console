@@ -124,7 +124,7 @@
     },
 
     methods: {
-      ...mapActions(['searchFilesCount', 'searchFiles', 'queryPictures', 'queryPicturesCount', 'deleteFile', 'queryPrivFileUrl']),
+      ...mapActions('sysFileUpload', ['searchFilesCount', 'searchFiles', 'queryPictures', 'queryPicturesCount', 'deleteFile', 'queryPrivFileUrl']),
 
       initPage() {
         this.queryPictures();

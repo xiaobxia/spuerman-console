@@ -49,7 +49,7 @@
     },
 
     methods: {
-      ...mapActions(['queryUserRoleList']),
+      ...mapActions('sysUser', ['queryUserRoleList']),
 
       formatterHandler (row, column) {
         switch (column.property) {

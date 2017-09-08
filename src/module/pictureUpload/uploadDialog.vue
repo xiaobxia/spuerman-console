@@ -63,7 +63,7 @@
     },
 
     methods: {
-      ...mapActions(['queryUploadToken', 'saveUploadFile', 'queryBuckets']),
+      ...mapActions('sysFileUpload', ['queryUploadToken', 'saveUploadFile', 'queryBuckets']),
 
       initPage() {
         this.queryBuckets();

@@ -71,8 +71,8 @@
         disableForm: true,
         pageModel: 'ADD',
         forceUpdateList: [
-          {value: false, label: 'No'},
-          {value: true, label: 'Yes'}
+          {value: 0, label: 'No'},
+          {value: 1, label: 'Yes'}
         ],
         form: {
           appId: '',
@@ -80,7 +80,7 @@
 
           versionId: '',
           versionNumber: '1.0.0',
-          forceUpdate: false,
+          forceUpdate: 0,
           downloadPath: '',
           versionDesc: ''
         },
@@ -154,7 +154,7 @@
       }
     },
     methods: {
-      ...mapActions([
+      ...mapActions('sysVersion', [
         'saveVersion', 'updateVersion', 'deleteVersion',
         'querySysVApps'
       ]),

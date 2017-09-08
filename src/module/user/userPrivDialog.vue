@@ -50,7 +50,7 @@
     },
 
     methods: {
-      ...mapActions(['queryUserPrivList']),
+      ...mapActions('sysUser', ['queryUserPrivList']),
 
       formatterHandler (row, column) {
         switch (column.property) {

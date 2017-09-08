@@ -130,7 +130,7 @@
     },
 
     methods: {
-      ...mapActions(['saveBucket', 'updateBucket']),
+      ...mapActions('sysFileUpload', ['saveBucket', 'updateBucket']),
 
       saveHandler() {
         let self = this;

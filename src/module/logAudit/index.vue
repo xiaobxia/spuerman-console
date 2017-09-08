@@ -41,7 +41,7 @@
       };
     },
     computed: {
-      ...mapGetters(['getSysLogAudits', 'getSysLogAuditTotalCount'])
+      ...mapGetters('sysLogAudit', ['getSysLogAudits', 'getSysLogAuditTotalCount'])
     },
 
     mounted() {
@@ -49,7 +49,7 @@
     },
 
     methods: {
-      ...mapActions(['querySysLogAudits', 'querySysLogAuditsCount']),
+      ...mapActions('sysLogAudit', ['querySysLogAudits', 'querySysLogAuditsCount']),
 
       initPage() {
         console.log('[LogAudit Page] mounted');

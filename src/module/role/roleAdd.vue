@@ -69,7 +69,7 @@
     },
 
     methods: {
-      ...mapActions(['querySysRole', 'saveSysRole', 'updateSysRole']),
+      ...mapActions('sysRole', ['querySysRole', 'saveSysRole', 'updateSysRole']),
 
       saveHandler() {
         let self = this;

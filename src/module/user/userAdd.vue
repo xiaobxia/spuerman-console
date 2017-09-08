@@ -131,7 +131,7 @@
     },
 
     methods: {
-      ...mapActions(['saveUser', 'queryUser', 'updateUser']),
+      ...mapActions('sysUser', ['saveUser', 'queryUser', 'updateUser']),
       saveHandler() {
         let self = this;
 

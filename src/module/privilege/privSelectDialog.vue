@@ -80,7 +80,7 @@
     },
 
     methods: {
-      ...mapActions(['queryPrivs', 'queryPrivsCount', 'deletePriv']),
+      ...mapActions('sysPriv', ['queryPrivs', 'queryPrivsCount', 'deletePriv']),
 
       formatterHandler (row, column) {
         switch (column.property) {

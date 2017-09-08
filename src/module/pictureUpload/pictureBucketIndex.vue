@@ -53,7 +53,7 @@
     },
 
     methods: {
-      ...mapActions(['queryBuckets', 'deleteBucket']),
+      ...mapActions('sysFileUpload', ['queryBuckets', 'deleteBucket']),
 
       initPage() {
         this.queryBuckets();

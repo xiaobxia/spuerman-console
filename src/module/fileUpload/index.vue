@@ -112,7 +112,7 @@
     },
 
     methods: {
-      ...mapActions(['queryFiles', 'queryFilesCount', 'deleteFile', 'queryPrivFileUrl']),
+      ...mapActions('sysFileUpload', ['queryFiles', 'queryFilesCount', 'deleteFile', 'queryPrivFileUrl']),
 
       initPage() {
         this.queryFiles();

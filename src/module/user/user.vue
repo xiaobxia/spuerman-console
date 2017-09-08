@@ -72,7 +72,7 @@
       };
     },
     computed: {
-      ...mapGetters(['getSysUsers', 'getSysUserTotalCount'])
+      ...mapGetters('sysUser', ['getSysUsers', 'getSysUserTotalCount'])
     },
     components: {UserRoleDialog, UserPrivDialog},
 
@@ -82,7 +82,7 @@
     },
 
     methods: {
-      ...mapActions(['queryUsers', 'queryUsersCount', 'deleteUser', 'lockUser', 'unlockUser', 'resetPwd']),
+      ...mapActions('sysUser', ['queryUsers', 'queryUsersCount', 'deleteUser', 'lockUser', 'unlockUser', 'resetPwd']),
 
       initPage() {
         this.currentPage = 1;

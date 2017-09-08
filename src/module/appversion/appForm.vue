@@ -4,7 +4,6 @@
       <div class="clearfix" style="padding:5px;">
         <span style="line-height: 36px;">{{$t('DETAIL')}}</span>
       </div>
-
       <el-form ref="form" :rules="rules" :model="form" label-width="120px">
         <el-row>
           <el-col :span="8">

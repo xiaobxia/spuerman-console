@@ -52,7 +52,7 @@
       };
     },
     computed: {
-      ...mapGetters([
+      ...mapGetters('sysVersion', [
         'getSysVersionCurrentPage',
         'getSysVersionTotalCount'
       ]),
@@ -66,7 +66,7 @@
       this.initPage();
     },
     methods: {
-      ...mapActions(['queryVersions', 'queryVersionsCount', 'deleteVersion']),
+      ...mapActions('sysVersion', ['queryVersions', 'queryVersionsCount', 'deleteVersion']),
       initPage () {
         this.queryVersions();
         this.queryVersionsCount();

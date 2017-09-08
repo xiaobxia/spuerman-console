@@ -51,14 +51,14 @@
       }
     },
     computed: {
-      ...mapGetters(['getSysUsers', 'getSysUserTotalCount'])
+      ...mapGetters('sysUser', ['getSysUsers', 'getSysUserTotalCount'])
     },
     mounted() {
       console.log('[User Select Dialog] mounted');
     },
 
     methods: {
-      ...mapActions(['queryUsers', 'queryUsersCount', 'deleteUser']),
+      ...mapActions('sysUser', ['queryUsers', 'queryUsersCount', 'deleteUser']),
 
       tableRowClickHandler (row, event, column) {
         console.log(row);

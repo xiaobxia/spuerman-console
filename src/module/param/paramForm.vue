@@ -1,4 +1,3 @@
-
 <template>
   <div>
     <el-card class="box-card" :body-style="{padding:'5px'}">
@@ -130,7 +129,7 @@
     },
 
     methods: {
-      ...mapActions(['saveSysParam', 'querySysParam', 'updateSysParam']),
+      ...mapActions('sysParam', ['saveSysParam', 'querySysParam', 'updateSysParam']),
       saveHandler() {
         let self = this;
 

@@ -124,7 +124,7 @@
       };
     },
     computed: {
-      ...mapGetters([
+      ...mapGetters('sysRole', [
         'getSysRoles', 'getSysRoleCurrentPage', 'getSysRoleTotalCount',
         'getSysUserRoles',
         'getSysRolePrivs'
@@ -138,7 +138,7 @@
     },
 
     methods: {
-      ...mapActions([
+      ...mapActions('sysRole', [
         'querySysRolesCount', 'querySysRoles', 'deleteSysRole',
         'queryUserRolesCount', 'queryUserRoles', 'deleteUserRole', 'saveUserRole',
         'queryRolePrivsCount', 'queryRolePrivs', 'deleteRolePriv', 'saveRolePriv'

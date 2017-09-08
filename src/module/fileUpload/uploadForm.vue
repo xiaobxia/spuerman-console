@@ -87,7 +87,7 @@
     },
 
     methods: {
-      ...mapActions(['queryFile', 'updateFile']),
+      ...mapActions('sysFileUpload', ['queryFile', 'updateFile']),
       saveHandler() {
         let self = this;
 
