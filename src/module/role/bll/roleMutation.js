@@ -1,4 +1,4 @@
-import arrayUtil from 'util/arrayUtil';
+import arrayUtil from 'superUtil/arrayUtil';
 import * as types from './roleMutationTypes';
 
 /**

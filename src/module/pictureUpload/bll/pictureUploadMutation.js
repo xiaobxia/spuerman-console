@@ -1,5 +1,5 @@
 import * as types from './pictureUploadMutationTypes';
-import arrayUtil from 'util/arrayUtil';
+import arrayUtil from 'superUtil/arrayUtil';
 import assignDeep from 'assign-deep';
 
 /**

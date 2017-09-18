@@ -1,5 +1,5 @@
 import * as types from './privMutationTypes';
-import arrayUtil from 'util/arrayUtil';
+import arrayUtil from 'superUtil/arrayUtil';
 
 /**
  * mutations

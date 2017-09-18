@@ -83,7 +83,7 @@
 
   import { mapActions } from 'vuex';
   import assignDeep from 'assign-deep';
-  import dateUtil from 'util/dateUtil';
+  import dateUtil from 'superUtil/dateUtil';
 
   import moduleStore from './bll/userStore';
   import store from '../../store';
