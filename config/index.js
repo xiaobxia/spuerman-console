@@ -1,8 +1,18 @@
 // see http://vuejs-templates.github.io/webpack for documentation.
 var path = require('path')
-
+const lib = require('./lib.dep.js');
 module.exports = {
+  common: {
+    lib: lib
+  },
   build: {
+    dll: {
+      basePath: '../common/js',
+      fileName: '../common/js/lib.js',
+      manifest: '../common/js/manifest.json',
+      outputPath: './static/js',  // 生成目录
+      publicPath: './static/js'   // 注入地址
+    },
     env: require('./prod.env'),
     index: path.resolve(__dirname, '../dist/index.html'),
     assetsRoot: path.resolve(__dirname, '../dist'),
@@ -25,6 +35,13 @@ module.exports = {
     bundleAnalyzerReport: process.env.npm_config_report
   },
   dev: {
+    dll: {
+      basePath: '../common/js',
+      fileName: '../common/js/lib.js',
+      manifest: '../common/js/manifest.json',
+      outputPath: './static/js',  // 生成目录
+      publicPath: './static/js'   // 注入地址
+    },
     env: require('./dev.env'),
     port: 4000,
     autoOpenBrowser: true,
