@@ -5,10 +5,12 @@ module.exports = {
     env: require('./prod.env'),
     index: path.resolve(__dirname, '../dist/index.html'),
     assetsRoot: path.resolve(__dirname, '../dist'),
-    assetsSubDirectory: 'static',
+    // assetsSubDirectory: 'static',
+    assetsSubDirectory: '',
     //解决打包时font的问题
     assetsPathInCss: '../../',
-    assetsPublicPath: './',
+    // assetsPublicPath: './',
+    assetsPublicPath: 'http://ozuwbnodp.bkt.clouddn.com/',
     //打包就移除sourceMap
     productionSourceMap: false,
     // Gzip off by default as many popular static hosts such as
@@ -25,7 +27,7 @@ module.exports = {
   },
   dev: {
     env: require('./dev.env'),
-    port: 4000,
+    port: 5000,
     autoOpenBrowser: true,
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
