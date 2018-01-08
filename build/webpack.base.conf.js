@@ -6,6 +6,7 @@ var os = require('os');
 var HappyPack = require('happypack');
 var happyThreadPool = HappyPack.ThreadPool({size: os.cpus().length});
 
+const ifCdn = process.env.NODE_ENV === 'production' && config.build.ifCdn;
 function resolve (dir) {
   return path.join(__dirname, '..', dir)
 }
@@ -18,7 +19,7 @@ module.exports = {
     path: config.build.assetsRoot,
     filename: '[name].js',
     publicPath: process.env.NODE_ENV === 'production'
-      ? config.build.assetsPublicPath
+      ? config.build.ifCdn ? config.build.cdnPublicPath : config.build.assetsPublicPath
       : config.dev.assetsPublicPath
   },
   resolve: {
@@ -69,7 +70,7 @@ module.exports = {
         loader: 'url-loader',
         options: {
           limit: 10000,
-          name: utils.assetsPath('[name].[hash:7].[ext]')
+          name: ifCdn ? utils.assetsPath('[name].[hash:7].[ext]') : utils.assetsPath('img/[name].[hash:7].[ext]')
           // name: utils.assetsPath('img/[name].[hash:7].[ext]')
         }
       },
@@ -79,7 +80,7 @@ module.exports = {
         options: {
           limit: 10000,
           // name: utils.assetsPath('media/[name].[hash:7].[ext]')
-          name: utils.assetsPath('[name].[hash:7].[ext]')
+          name: ifCdn ? utils.assetsPath('[name].[hash:7].[ext]') : utils.assetsPath('media/[name].[hash:7].[ext]')
         }
       },
       {
@@ -87,7 +88,7 @@ module.exports = {
         loader: 'url-loader',
         options: {
           limit: 10000,
-          name: utils.assetsPath('[name].[hash:7].[ext]')
+          name: ifCdn ? utils.assetsPath('[name].[hash:7].[ext]') : utils.assetsPath('fonts/[name].[hash:7].[ext]')
           // name: utils.assetsPath('fonts/[name].[hash:7].[ext]')
         }
       }
